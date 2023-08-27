@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>국립대전현충원 list</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js" integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous"></script>
+</head>
+<style>
+    table {border-collapse:collapse;border-spacing:0;}
+    table td, strong {font-weight:normal;}
+    body{margin:20px;}
+    h1{margin:0 0 10px 0;}
+    a {display: block; text-decoration:none;}
+    a:hover {text-decoration:underline;}
+    .header {display: flex; justify-content: space-between; flex-wrap: wrap;}
+    hr {width: 100%;}
+    .header h1 {display: flex; align-items: center;}
+    .header > div {background-color: #f3f3f3; padding: 0 30px; border-radius: 5px;}
+    .header div p {text-align: right; margin: 0; line-height: 30px; font-size: 14px;}
+    .list_w table {width:100%;margin:20px auto;border-top: solid 2px #555;border-collapse:collapse;border-spacing:0;font-size:12px;text-align:left;}
+    .list_w table tr:hover {background:#f3f3f3;}
+    .list_w table th {padding: 7px 5px;	border: solid 1px #ddd;background: #efefef;vertical-align:middle; text-align: center;}
+    .list_w table td {padding: 3px;border:solid 1px #ccc;vertical-align:middle;}
+    .list_w table td:nth-child(2) {text-align: left;}
+    .list_w table tr.on td {background: rgb(227, 235, 227);}
+    .list_w table tr.title th {background:#666;color:#fff;font-size:18px;border:0;padding-top:7px;}
+    .lastmdate {color: #1155CC;}
+    .stand_by {color:#777;}
+    .ing {color:#4848D4;}
+    .red {background-color: rgb(173, 13, 13); color: #fff; padding: 2px 5px;}
+    .blue {background-color: rgb(28, 60, 167); color: #fff; padding: 2px 5px; margin-left: 3px;}
+    .end {color:green;}
+    .list_w table td.link,
+    .list_w table td.etc{text-align: left; padding-left:10px;}
+    #list td{background: #fff;}
+    #list td.con, #list td.date {text-align: center;}
+    .list_w thead tr td {text-align: center;}
+    #list tr:hover td {background: #f3f3f3;}
+    #list tr td:nth-child(1),
+    #list tr td:nth-child(2),
+    #list tr td:nth-child(5),
+    #list tr td:nth-child(6) {text-align: center;}
+    .header > div.file {background-color: transparent; padding: 0; border-radius: 0;}
+    .file ul {display: flex; flex-wrap: wrap; gap: 5px 10px; padding: 0; margin: 0;}
+    .file li {list-style: none;}
+    .file li a {display: flex; padding: 8px 20px; background-color: #f5f5f5; border-radius: 50px; font-size: 12px;}
+    .file li.front a {background-color: #4848D4; color: #fff;}
+    .file li:hover a {text-decoration: none; background-color: #666; color: #fff;}
+    .file li.front:hover a {background-color: #181866;}
+    .design div {display: flex; justify-content: center;}
+    .design div a {display: flex; justify-content: center; border-radius: 20px; padding: 3px 15px; background-color: #4848D4; color: #fff;}
+    .design div a.none {background-color: #aaa;}
+    .none_tr td {background-color: #aaa !important; color: #bbb !important;}
+    .none_tr td a {color: #bbb;}
+</style>
+<body>
+    <div class="wrap">
+        <div class="header">
+            <h1>국립대전현충원 퍼블리싱 리스트</h1>
+            <div>
+                <p>완료된 페이지 : <span class="curr_n"></span>page / Total : <span class="total_n"></span>page</p>
+                <p>진행율 : <span class="per"></span></p>
+            </div>
+            <hr />
+            <div class="file">
+                <ul>
+                    <!-- <li><a href="./file/20230129_pub.zip" download>20230129_pub</a></li> -->
+                </ul>
+            </div>
+            <hr />
+        </div>
+
+        <div class="list_w">
+            <table class="codinglist">
+                <colgroup>
+                    <col width="3%" />
+                    <col width="12%" />
+                    <col width="27%" />
+                    <col width="18%" />
+                    <col width="6%" />
+                    <col width="4%" />
+                    <col width="*" />
+                </colgroup>
+                <thead>
+                    <tr class="title">
+                        <th colspan="8">국립대전현충원</th>
+                    </tr>
+                    <tr>
+                        <th scope="col">no.</th>
+                        <th scope="col">구분</th>
+                        <th scope="col">페이지명</th>
+                        <th scope="col">경로</th>
+                        <th scope="col">날짜</th>
+                        <th scope="col">상태</th>
+                        <th scope="col">비고</th>
+                    </tr>
+                </thead>
+                <tbody id="list"></tbody>
+            </table>
+        </div>
+    </div>
+    <script defer>
+        
+        $(function(){
+            const  menuTableHeader = ['type', '구분','페이지명','경로','날짜','개발시작날짜','상태','비고']
+    
+            // 객체 초기화
+            let menuDefault = {
+                type:'',
+                division: '',
+                depth1:'',
+                path:'',
+                date:'',
+                mdate:'',
+                con:'',
+                etc:''
+            };
+        
+            // 배열 추가
+            let menuTableList = [
+                //value값이 없으면 빈문자열로 남기기
+                {
+                    division: '퍼블리싱 가이드',
+                    depth1:'',
+                    path:'./html/pub_guide.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '메뉴 gnb + 팝업',
+                    depth1:'',
+                    path:'./html/gnb_pop.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                // {
+                //     division: '에러페이지',
+                //     depth1:'',
+                //     path:'./html/error.html',
+                //     date:'2023-02-01',
+                //     con:'완료',
+                //     etc:''
+                // },
+                // {
+                //     division: '이메일 html',
+                //     depth1:'',
+                //     path:'./html/email.html',
+                //     date:'2023-03-17',
+                //     con:'완료',
+                //     etc:''
+                // },
+
+                // 메인
+                {
+                    division: '메인',
+                    depth1:'',
+                    path:'./html/dj-0001.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+
+                // 이용마당
+                {
+                    division: '이용마당',
+                    depth1:'안장안내 > 안장/이장 > 안장안내',
+                    path:'./html/dj-1001.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'안장안내 > 안장/이장 > 대상',
+                    path:'./html/dj-1002.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'안장안내 > 안장/이장 > 절차',
+                    path:'./html/dj-1003.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'안장안내 > 안장/이장 > 안장/이장 신청',
+                    path:'./html/dj-1004.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'안장안내 > 위패 봉안',
+                    path:'./html/dj-1005.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'안장안내 > 배우자 합장',
+                    path:'./html/dj-1006.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'안장안내 > 생전 안장대상 결정 신청',
+                    path:'./html/dj-1007.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'일일합동 안장식',
+                    path:'./html/dj-1008.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'각종 신청 > 묘비문 신청',
+                    path:'./html/dj-1009.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'각종 신청 > 묘소/묘비 보수 신청',
+                    path:'./html/dj-1010.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'각종 신청 > 안장확인서 발급 신청',
+                    path:'./html/dj-1011.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'각종 신청 > 유족 등록 신청',
+                    path:'./html/dj-1012.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'각종 신청 > 유족 기록 정정',
+                    path:'./html/dj-1013.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'신청서식 내려받기',
+                    path:'./html/dj-1014.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+
+                // 참여마당
+                {
+                    division: '참여마당',
+                    depth1:'참배 > 현충탑 참배 > 참배란',
+                    path:'./html/dj-2001.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'참배 > 현충탑 참배 > 참배 안내',
+                    path:'./html/dj-2002.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'참배 > 현충탑 참배 > 참배 요령',
+                    path:'./html/dj-2003.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'참배 > 온라인 참배',
+                    path:'./html/dj-2004.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'참배 > 안장자 참배/검색',
+                    path:'./html/dj-2005.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'참배 > 묘소참배 의전단 연주서비스',
+                    path:'./html/dj-2006.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'참배 > 추모의 편지',
+                    path:'./html/dj-2007.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'봉사활동 > 봉사활동 안내',
+                    path:'./html/dj-2008.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'봉사활동 > 봉사활동 신청',
+                    path:'./html/dj-2009.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'봉사활동 > 수정/취소/확인서 발급',
+                    path:'./html/dj-2010.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'봉사활동 > 1사 1묘역 가꾸기 결연',
+                    path:'./html/dj-2011.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'보훈동산/공연장 이용 > 보훈공연장 대관신청 안내',
+                    path:'./html/dj-2012.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'보훈동산/공연장 이용 > 보훈동산 이용안내',
+                    path:'./html/dj-2013.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'대화의 장 > 자유게시판',
+                    path:'./html/dj-2014.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'대화의 장 > 칭찬합니다',
+                    path:'./html/dj-2015.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'민원 질의응답 > 민원 질의응답',
+                    path:'./html/dj-2016.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'민원 질의응답 > 민원 길라잡이',
+                    path:'./html/dj-2017.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'민원 질의응답 > 민원 사무편람',
+                    path:'./html/dj-2018.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+
+                // 알림마당
+                {
+                    division: '알림마당',
+                    depth1:'공지사항',
+                    path:'./html/dj-3001.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'현충뉴스',
+                    path:'./html/dj-3002.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'영웅 STORY',
+                    path:'./html/dj-3003.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'공훈록 보기',
+                    path:'./html/dj-3004.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'공훈록 보기 > 호국전몰 용사',
+                    path:'./html/dj-3005.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'공훈록 보기 > 독립유공자',
+                    path:'./html/dj-3006.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'통계정보 > 안장/위패 현황',
+                    path:'./html/dj-3007.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'통계정보 > 방문/참배 현황',
+                    path:'./html/dj-3008.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+
+                // 교육·행사
+                {
+                    division: '교육·행사',
+                    depth1:'나라사랑 체험교육소개',
+                    path:'./html/dj-4001.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'해설(견학)프로그램 > 현충원과 보훈찾기',
+                    path:'./html/dj-4002.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'해설(견학)프로그램 > 보훈 키움이',
+                    path:'./html/dj-4003.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'해설(견학)프로그램 > 호국 배움이',
+                    path:'./html/dj-4004.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'해설(견학)프로그램 > 현충원 한바퀴',
+                    path:'./html/dj-4005.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'휴가장병 프로그램',
+                    path:'./html/dj-4006.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'나라사랑 보훈스쿨',
+                    path:'./html/dj-4007.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'나라사랑 체험소감문 > 안내',
+                    path:'./html/dj-4008.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'나라사랑 체험소감문 > 접수',
+                    path:'./html/dj-4009.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+
+                // 미디어현충원
+                {
+                    division: '미디어현충원',
+                    depth1:'갤러리 > 포토갤러리 > 참배 행사',
+                    path:'./html/dj-5001.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'갤러리 > 포토갤러리 > 안장 행사',
+                    path:'./html/dj-5002.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'갤러리 > 포토갤러리 > 추도 행사',
+                    path:'./html/dj-5003.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'갤러리 > 포토갤러리 > 각종 행사',
+                    path:'./html/dj-5004.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'갤러리 > 포토갤러리 > 명예 집례관',
+                    path:'./html/dj-5005.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'갤러리 > 포토갤러리 > 가볼만한 곳',
+                    path:'./html/dj-5006.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'갤러리 > 영상갤러리 > 참배 행사',
+                    path:'./html/dj-5007.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'갤러리 > 영상갤러리 > 안장 행사',
+                    path:'./html/dj-5008.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'갤러리 > 영상갤러리 > 추도 행사',
+                    path:'./html/dj-5009.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'갤러리 > 영상갤러리 > 각종 행사',
+                    path:'./html/dj-5010.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'갤러리 > 영상갤러리 > 가볼만한 곳',
+                    path:'./html/dj-5011.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'홍보물/책자 > 홍보 책자',
+                    path:'./html/dj-5012.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'홍보물/책자 > 소식지',
+                    path:'./html/dj-5013.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'홍보물/책자 > 보훈 둘레길',
+                    path:'./html/dj-5014.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'공모전 > 사진 공모전',
+                    path:'./html/dj-5015.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'공모전 > 체험 소감문',
+                    path:'./html/dj-5016.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+
+                // 현충원소개
+                {
+                    division: '현충원소개',
+                    depth1:'인사말',
+                    path:'./html/dj-6001.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'연혁 > 역사',
+                    path:'./html/dj-6002.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'연혁 > 연혁',
+                    path:'./html/dj-6003.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'연혁 > 묘역조성 경과',
+                    path:'./html/dj-6004.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'안장시설 > 충혼당',
+                    path:'./html/dj-6005.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'안장시설 > 위패 봉안실',
+                    path:'./html/dj-6006.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'참배/추모 시설 > 현충문',
+                    path:'./html/dj-6007.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'참배/추모 시설 > 현충탑',
+                    path:'./html/dj-6008.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'행사/전시관 > 현충관',
+                    path:'./html/dj-6009.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'행사/전시관 > 보훈 미래관',
+                    path:'./html/dj-6010.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'행사/전시관 > 호국철도 기념관',
+                    path:'./html/dj-6011.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'행사/전시관 > 보훈장비 전시장',
+                    path:'./html/dj-6012.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'관련사이트',
+                    path:'./html/dj-6013.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'조직 및 업무',
+                    path:'./html/dj-6014.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'이용안내',
+                    path:'./html/dj-6015.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'안장묘역 위치안내',
+                    path:'./html/dj-6016.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'보훈모시미 운행안내',
+                    path:'./html/dj-6017.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'찾아오시는 길',
+                    path:'./html/dj-6018.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+
+                // 홈페이지 가이드
+                {
+                    division: '홈페이지 가이드',
+                    depth1:'홈페이지 개선의견',
+                    path:'./html/dj-7001.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'개인정보 처리방침',
+                    path:'./html/dj-7002.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'저작권 정책',
+                    path:'./html/dj-7003.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'이메일 집단 수집거부',
+                    path:'./html/dj-7004.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'뷰어 다운로드',
+                    path:'./html/dj-7005.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'본인 확인 서비스',
+                    path:'./html/dj-7006.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'정보마당 > 정보공개',
+                    path:'./html/dj-7007.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'정보마당 > 법령정보',
+                    path:'./html/dj-7008.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+                {
+                    division: '',
+                    depth1:'정보마당 > 보훈행정 서비스 헌장',
+                    path:'./html/dj-7009.html',
+                    date:'',
+                    con:'',
+                    etc:''
+                },
+            ];
+        
+
+            // 작업리스트 화면에 출력
+            let html = '';
+            for (let i = 0; i < menuTableList.length; i++) {
+                const item = menuTableList[i];
+                html += `
+                    <tr>
+                        <td class="no">${i + 1}</td>
+                        <td>${item.division}</td>
+                        <td>${item.depth1}</td>
+                        <td class="link"><a href="${item.path}" target="_blank">${item.path}</a></td>
+                        <td class="date">${item.date}</td>
+                        <td class="con">${item.con}</td>
+                        <td class="etc">${item.etc}</td>
+                    </tr>`;
+            }
+            $('#list').html(html);
+
+            // 현재 날짜 구하기 YYYY-MM-DD 형식
+            const time = new Date();
+            const today = `${time.getFullYear()}-${('0' + (time.getMonth() + 1)).slice(-2)}-${('0' + time.getDate()).slice(-2)}`;
+
+            // 완료된 페이지 개수 구하기
+            let curr_n = 0;
+            $('.con').each(function () {
+                const $this = $(this);
+                const conText = $this.text();
+                if (conText === '완료') {
+                    curr_n++;
+                    $this.css('color', 'blue');
+                } else {
+                    $this.css('color', 'red');
+                }
+            });
+            $('.date:contains(' + today + ')').css('color', 'red');
+            $('.curr_n').text(curr_n);
+
+            // 전체 페이지 개수 구하기
+            const total_n = $('#list tr').length - 2;
+            $('.total_n').text(total_n);
+
+            // 진행률 나타내기
+            $('.per').text(Math.floor((curr_n / total_n) * 100) + '%');
+
+            // 삭제페이지
+            $('.none').parents('tr').addClass('none_tr');
+
+        });
+
+    </script>
+</body>
+</html>
