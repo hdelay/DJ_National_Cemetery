@@ -17,13 +17,13 @@ window.onload = function(){
         changeYear: true,
         yearRange: 'c-100:c+15',
         // maxDate: "d",
-        buttonImage: "../images/ico/ico_calender.svg",
+        buttonImage: "../images/ico/ico_calendar.svg",
         buttonImageOnly: true,
         buttonText: "날짜선택"
     });
 
     // 탭
-    $('.tab_group .tab_btn > ul > li > a').on('click', function(e){
+    $('.tab_group > .tab_btn > ul > li > a').on('click', function(e){
         e.preventDefault();
         const on_tab = $(this).attr("rel")
 

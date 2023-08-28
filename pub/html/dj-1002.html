@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>국립대전현충원</title>
+
+    <!-- pub css -->
+    <link rel="stylesheet" href="../css/jquery-ui.min.css">
+    <link rel="stylesheet" href="../css/swiper.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <!-- pub js -->
+    <script src="../js/jquery-3.6.0.js"></script>
+    <script src="../js/jquery-ui.js"></script>
+    <script src="../js/swiper.min.js"></script>
+    <script src="../js/common.js"></script>
+
+</head>
+<body>
+
+<div class="wrap">
+
+    <!-- skip nav -->
+    <div class="skip_nav" title="스킵 네비게이션">
+        <ul>
+            <li><a href="#nav" title="메뉴 바로가기">메뉴 바로가기</a></li>
+            <li><a href="#container" title="본문 바로가기">본문 바로가기</a></li>
+        </ul>
+    </div>
+
+    <!-- header -->
+    <header>
+        
+        <!-- header top -->
+        <div class="header_top">
+            <div class="inner">
+                <ul class="quick_link">
+                    <li class="home"><a href="./dj-0001.html">처음으로</a></li>
+                    <li><a href="">사이트맵</a></li>
+                </ul>
+                <div class="font_size_box">
+                    <span>글씨크기</span>
+                    <ul>
+                        <li class="font_plus"><a href="javascript:void(0);">크게</a></li>
+                        <li class="font_minus"><a href="javascript:void(0);">작게</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- header bottom -->
+        <div class="header_bottom">
+            <div class="inner">
+                <h1><a href="">국립대전현충원</a></h1>
+                <nav id="nav">
+                    <ul>
+                        <li class="on">
+                            <a href="./dj-1001.html">이용마당</a>
+                            <ul>
+                                <li><a href="./dj-1001.html">안장안내</a></li>
+                                <li><a href="./dj-1008.html">일일합동 안장식</a></li>
+                                <li><a href="./dj-1009.html">각종 신청</a></li>
+                                <li><a href="./dj-1014.html">신청서식 내려받기</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="./dj-2001.html">참여마당</a>
+                            <ul>
+                                <li><a href="./dj-2001.html">참배</a></li>
+                                <li><a href="./dj-2008.html">봉사활동</a></li>
+                                <li><a href="./dj-2012.html">보훈동산/공연장 이용</a></li>
+                                <li><a href="./dj-2014.html">대화의 장</a></li>
+                                <li><a href="./dj-2016.html">민원질의 응답</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="./dj-3001.html">알림마당</a>
+                            <ul>
+                                <li><a href="./dj-3001.html">공지사항</a></li>
+                                <li><a href="./dj-3002.html">현충뉴스</a></li>
+                                <li><a href="./dj-3003.html">영웅 STORY</a></li>
+                                <li><a href="./dj-3004.html">공훈록 보기</a></li>
+                                <li><a href="./dj-3007.html">통계 정보</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="./dj-4001.html">교육·행사</a>
+                            <ul>
+                                <li><a href="./dj-4001.html">나라사랑 체험교육소개</a></li>
+                                <li><a href="./dj-4002.html">해설(견학)프로그램</a></li>
+                                <li><a href="./dj-4006.html">휴가장병 프로그램</a></li>
+                                <li><a href="./dj-4007.html">나라사랑 보훈스쿨</a></li>
+                                <li><a href="./dj-4008.html">나라사랑 체험소감문</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="./dj-5001.html">미디어현충원</a>
+                            <ul>
+                                <li><a href="./dj-5001.html">갤러리</a></li>
+                                <li><a href="./dj-5012.html">홍보물/책자</a></li>
+                                <li><a href="./dj-5015.html">공모전</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="./dj-6001.html">현충원소개</a>
+                            <ul>
+                                <li><a href="./dj-6001.html">인사말</a></li>
+                                <li><a href="./dj-6002.html">연혁</a></li>
+                                <li><a href="./dj-6005.html">안장시설</a></li>
+                                <li><a href="./dj-6007.html">참배/추모 시설</a></li>
+                                <li><a href="./dj-6009.html">행사/전시관</a></li>
+                                <li><a href="./dj-6013.html">관련사이트</a></li>
+                                <li><a href="./dj-6014.html">조직 및 업무</a></li>
+                                <li><a href="./dj-6015.html">이용안내</a></li>
+                                <li><a href="./dj-6016.html">안장묘역 위치안내</a></li>
+                                <li><a href="./dj-6017.html">보훈모시미 운행안내</a></li>
+                                <li><a href="./dj-6018.html">찾아오시는 길</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="util_box">
+                        <div class="search_box">
+                            <input type="text" placeholder="통합검색">
+                            <button>검색</button>
+                        </div>
+                        <div class="korea_pop">
+                            <a href="javascript:void(0);">국가상징팝업</a>
+                        </div>
+                        <div class="allmenu_btn">
+                            <a href="">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="allmenu_cont">
+                        <div class="tit">
+                            <h3>MENU</h3>
+                            <a href="">닫기</a>
+                        </div>
+                        <ul>
+                            <li>
+                                <a href="">이용마당</a>
+                                <ul>
+                                    <li class="plus">
+                                        <a href="">안장안내</a>
+                                        <ul>
+                                            <li><a href="">안장/이장</a></li>
+                                            <li><a href="">위패 봉안</a></li>
+                                            <li><a href="">배우자 합장</a></li>
+                                            <li><a href="">생전 안장대상 결정 신청</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="./dj-1008.html">일일합동 안장식</a></li>
+                                    <li class="plus">
+                                        <a href="">각종 신청</a>
+                                        <ul>
+                                            <li><a href="">묘비문 신청</a></li>
+                                            <li><a href="">묘소/묘비 보수 신청</a></li>
+                                            <li><a href="">안장확인서 발급 신청</a></li>
+                                            <li><a href="">유족 등록 신청</a></li>
+                                            <li><a href="">유족 기록 정정</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="./dj-1014.html">신청서식 내려받기</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="">참여마당</a>
+                                <ul>
+                                    <li class="plus">
+                                        <a href="">참배</a>
+                                        <ul>
+                                            <li><a href="">현충탑 참배</a></li>
+                                            <li><a href="">온라인 참배</a></li>
+                                            <li><a href="">안장자 참배/검색</a></li>
+                                            <li><a href="">묘소참배 의전단 연주서비스</a></li>
+                                            <li><a href="">추모의 편지</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="plus">
+                                        <a href="">봉사활동</a>
+                                        <ul>
+                                            <li><a href="">봉사활동 안내</a></li>
+                                            <li><a href="">봉사활동 신청</a></li>
+                                            <li><a href="">수정/취소/확인서 발급</a></li>
+                                            <li><a href="">1사 1묘역 가꾸기 결연</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="plus">
+                                        <a href="">보훈동산/공연장 이용</a>
+                                        <ul>
+                                            <li><a href="">보훈공연장 대관신청 안내</a></li>
+                                            <li><a href="">보훈동산 이용안내</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="plus">
+                                        <a href="">대화의 장</a>
+                                        <ul>
+                                            <li><a href="">자유게시판</a></li>
+                                            <li><a href="">칭찬합니다</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="plus">
+                                        <a href="">민원질의 응답</a>
+                                        <ul>
+                                            <li><a href="">민원 질의응답</a></li>
+                                            <li><a href="">민원 길라잡이</a></li>
+                                            <li><a href="">민원 사무편람</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="">알림마당</a>
+                                <ul>
+                                    <li><a href="./dj-3001.html">공지사항</a></li>
+                                    <li><a href="./dj-3002.html">현충뉴스</a></li>
+                                    <li><a href="./dj-3003.html">영웅 STORY</a></li>
+                                    <li class="plus">
+                                        <a href="">공훈록 보기</a>
+                                        <ul>
+                                            <li><a href="">호국전몰 용사</a></li>
+                                            <li><a href="">독립유공자</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="plus">
+                                        <a href="">통계 정보</a>
+                                        <ul>
+                                            <li><a href="">안장/위패현황</a></li>
+                                            <li><a href="">방문/참배현황</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="">교육·행사</a>
+                                <ul>
+                                    <li><a href="">나라사랑 체험교육소개</a></li>
+                                    <li class="plus">
+                                        <a href="">해설(견학)프로그램</a>
+                                        <ul>
+                                            <li><a href="">현충원과 보훈찾기</a></li>
+                                            <li><a href="">보훈 키움이</a></li>
+                                            <li><a href="">호국 배움이</a></li>
+                                            <li><a href="">현충원 한바퀴</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="./dj-4006.html">휴가장병 프로그램</a></li>
+                                    <li><a href="./dj-4007.html">나라사랑 보훈스쿨</a></li>
+                                    <li class="plus">
+                                        <a href="">나라사랑 체험소감문</a>
+                                        <ul>
+                                            <li><a href="">안내</a></li>
+                                            <li><a href="">접수</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="">미디어현충원</a>
+                                <ul>
+                                    <li class="plus">
+                                        <a href="">갤러리</a>
+                                        <ul>
+                                            <li><a href="">포토갤러리</a></li>
+                                            <li><a href="">영상갤러리</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="plus">
+                                        <a href="">홍보물/책자</a>
+                                        <ul>
+                                            <li><a href="">홍보 책자</a></li>
+                                            <li><a href="">소식지</a></li>
+                                            <li><a href="">보훈 둘레길</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="plus">
+                                        <a href="">공모전</a>
+                                        <ul>
+                                            <li><a href="">사진 공모전</a></li>
+                                            <li><a href="">체험 소감문</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="">현충원소개</a>
+                                <ul>
+                                    <li><a href="./dj-6001.html">인사말</a></li>
+                                    <li class="plus">
+                                        <a href="">연혁</a>
+                                        <ul>
+                                            <li><a href="">역사</a></li>
+                                            <li><a href="">연혁</a></li>
+                                            <li><a href="">묘역조성 경과</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="plus">
+                                        <a href="">안장시설</a>
+                                        <ul>
+                                            <li><a href="">충혼당</a></li>
+                                            <li><a href="">위패 봉안실</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="plus">
+                                        <a href="">참배/추모 시설</a>
+                                        <ul>
+                                            <li><a href="">현충문</a></li>
+                                            <li><a href="">현충탑</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="plus">
+                                        <a href="">행사/전시관</a>
+                                        <ul>
+                                            <li><a href="">현충관</a></li>
+                                            <li><a href="">보훈 미래관</a></li>
+                                            <li><a href="">호국철도 기념관</a></li>
+                                            <li><a href="">보훈장비 전시장</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="./dj-6013.html">관련사이트</a></li>
+                                    <li><a href="./dj-6014.html">조직 및 업무</a></li>
+                                    <li><a href="./dj-6015.html">이용안내</a></li>
+                                    <li><a href="./dj-6016.html">안장묘역 위치안내</a></li>
+                                    <li><a href="./dj-6017.html">보훈모시미 운행안내</a></li>
+                                    <li><a href="./dj-6018.html">찾아오시는 길</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="">홈페이지 가이드</a>
+                                <ul>
+                                    <li><a href="./dj-7001.html">홈페이지 개선의견</a></li>
+                                    <li><a href="./dj-7002.html">개인정보 처리방침</a></li>
+                                    <li><a href="./dj-7003.html">저작권 정책</a></li>
+                                    <li><a href="./dj-7004.html">이메일 집단 수집거부</a></li>
+                                    <li><a href="./dj-7005.html">뷰어 다운로드</a></li>
+                                    <li><a href="./dj-7006.html">본인 확인 서비스</a></li>
+                                    <li class="plus">
+                                        <a href="">정보마당</a>
+                                        <ul>
+                                            <li><a href="./dj-7007.html">정보공개</a></li>
+                                            <li><a href="./dj-7008.html">법령정보</a></li>
+                                            <li><a href="./dj-7009.html">보훈행정 서비스 헌장</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <!-- 주요서비스 -->
+        <dl class="main_service">
+            <dt><a href=""><span></span>주요서비스</a></dt>
+            <dd>
+                <ul>
+                    <li class="service_bi_app"><a href=""><span></span>안장/이장 신청</a></li>
+                    <li class="service_va_app"><a href=""><span></span>봉사활동 신청</a></li>
+                    <li class="service_iot_org"><a href=""><span></span>기관소개</a></li>
+                    <li class="service_cl_gui"><a href=""><span></span>안장묘역 위치안내</a></li>
+                    <li class="service_derection"><a href=""><span></span>찾아오시는 길</a></li>
+                </ul>
+            </dd>
+        </dl>
+
+    </header>
+    <!-- //header -->
+
+    <!-- container -->
+    <div class="container" id="container">
+
+        <!-- 서브페이지 banner -->
+        <div class="sub_visual"></div>
+
+        <div class="inner">
+            
+            <!-- 서브 nav -->
+            <ul class="sub_nav">
+                <li class="on"><a href="">안장/이장</a></li>
+                <li><a href="">위패 봉안</a></li>
+                <li><a href="">배우자 합장</a></li>
+                <li><a href="">생전 안장대상 결정 신청</a></li>
+            </ul>
+
+            <!-- 서브 메인 컨텐츠 -->
+            <div class="sub_content">
+
+                <!-- sub타이틀 -->
+                <div class="tit_box">
+                    <h3>안장/이장</h3>
+                </div>
+
+                <!-- 탭메뉴 -->
+                <div class="dep_main">
+                    <div class="tab_btn">
+                        <ul>
+                            <li class="on"><a href="./dj-1002.html">대상</a></li>
+                            <li><a href="./dj-1003.html">절차</a></li>
+                            <li><a href="./dj-1004.html">안장/이장 신청</a></li>
+                        </ul>
+                    </div>
+                    <div class="tab_content">
+
+                        <!-- 테이블 -->
+                        <div class="info_tbl_box">
+                            <table>
+                                <caption>정보입력 테이블</caption>
+                                <colgroup>
+                                    <col width="20%"/>
+                                    <col width="40%"/>
+                                    <col width="20%"/>
+                                    <col width="20%"/>
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">신분</th>
+                                        <th scope="col">안장대상</th>
+                                        <th scope="col">제4조1항1호</th>
+                                        <th scope="col">사망대상기간<br/>(신청할 곳)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="agn_c" rowspan="4"><span class="txt_b">대통령 등, 독립유공자,장관급장교, 국가사회 공헌자</span></td>
+                                        <td>
+                                            <ul class="small_ullist">
+                                                <li><span class="txt_b">대통령, 국회의장, 대법원장, 헌법재판소장</span></li>
+                                                <li>국가장으로 장의 된 자(「국가장법」제2조)</li>
+                                            </ul>
+                                        </td>
+                                        <td class="agn_c">가목</td>
+                                        <td class="agn_c">2006.1.30.이후<br/>(처 본부)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="txt_b">순국선열, 애국지사</span>(「독립유공자법」 제4조)</td>
+                                        <td class="agn_c">나목</td>
+                                        <td class="agn_c" rowspan="2">제한없음<br/>안장시스템</td>
+                                    </tr>
+                                    <tr>
+                                        <td>장관급 장교 (준장~대장)</td>
+                                        <td class="agn_c br">마목</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="txt_b">국가ㆍ사회 공헌자(외국인 포함)  </span>※ 안장심의대상
+                                            <ul class="small_ullist">
+                                                <li>국민훈장, 수교훈장, 산업훈장, 새마을훈장, 문화훈장, 체육훈장, 과학기술훈장을 받은 사람 또는 이에 준한 사람으로 국위선양 및 국민적추앙을받는 자</li>
+                                            </ul>
+                                        </td>
+                                        <td class="agn_c">가목</td>
+                                        <td class="agn_c">2006.1.30.이후<br/>(처 본부)</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="5" class="agn_c"><span class="txt_b">대통령 등, 독립유공자,장관급장교, 국가사회 공헌자</span></td>
+                                        <td>
+                                            <span class="txt_b">전사 및 순직자</span>
+                                            <ul class="small_ullist">
+                                                <li>무관후보생, 전환복무자(전투경찰, 교도대원, 의용소방원) 포함 </li>
+                                                <li>군사적 목적으로 외국에 파견 공무원 포함</li>
+                                                <li>청년단원, 향토방위대원, 소방관, 의용소방관, 학도병, 애국단원, 노무자 포함</li>
+                                            </ul>
+                                        </td>
+                                        <td class="agn_c">다목</td>
+                                        <td rowspan="2" class="agn_c">제한없음<br/>(안장시스템)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="txt_b">무공수훈자</span>(태극, 을지, 충무, 화랑, 인헌)</td>
+                                        <td class="agn_c br">라목</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="txt_b">장기복무 제대군인(군무원은 제외)-무관후보생교육기간포함</span>
+                                            <ul class="small_ullist">
+                                                <li>19년 6개월 이상(「군인연금법」제16조 규정 준용)</li>
+                                            </ul>
+                                        </td>
+                                        <td class="agn_c">마목</td>
+                                        <td class="agn_c">1981.1.1.이후<br/>(안장시스템)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6ㆍ25참전 재일학도의용군인</td>
+                                        <td class="agn_c">자목</td>
+                                        <td rowspan="2" class="agn_c">제한없음<br/>(안장시스템)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>전ㆍ공상자(1~7급)</td>
+                                        <td class="agn_c br">사목</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="2" class="agn_c"><span class="txt_b">향토 예비군</span></td>
+                                        <td>전사자</td>
+                                        <td class="agn_c">바목</td>
+                                        <td class="agn_c">제한없음<br/>(안장시스템)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>임무수행 중 순직</td>
+                                        <td class="agn_c">바목</td>
+                                        <td class="agn_c">2006.1.30.이후<br/>(안장시스템)</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="2" class="agn_c"><span class="txt_b">경찰</span></td>
+                                        <td>전사자, 무공수훈자, 전ㆍ공상자(1~7급)</td>
+                                        <td class="agn_c">바, 라, 사목</td>
+                                        <td rowspan="2" class="agn_c">제한없음<br/>(안장시스템)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>임무수행 중 순직</td>
+                                        <td class="agn_c br">바목</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="3" class="agn_c"><span class="txt_b">소방관</span></td>
+                                        <td>
+                                            순직 소방관
+                                            <ul class="small_ullist">
+                                                <li>(화재진압, 인명구조 및 구급업무수행 또는 현장상황을 가상한 실습훈련 중)</li>
+                                            </ul>
+                                        </td>
+                                        <td rowspan="3" class="agn_c">아목</td>
+                                        <td rowspan="3" class="agn_c">제한없음<br/>(안장시스템)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="br">공상군경으로 등록된 소방공무원 (법률개정2013.07.16)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="br">공상공무원 1~7급으로 등록된 소방공무원(법률개정 2013.11.23)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="agn_c"><span class="txt_b">순직공무원</span></td>
+                                        <td>
+                                            <span class="txt_b">산불진화와 교정업무 등 위험한 직무를 수행하는 자로서 직무수행 중 사망</span>
+                                            (국립묘지법시행령 제3조 2항각호)
+                                            <ul class="small_ullist">
+                                                <li>교도소, 구치소, 보호감호소 등에서의 교정업무</li>
+                                                <li>재해의 예방ㆍ대응ㆍ복구 현장에서 인명구조, 진화, 구난, 방역등의 직무</li>
+                                                <li>헬기에 탑승하여 산불진화, 병해충 방제, 인명구조 등의 직무</li>
+                                                <li>「대통령 등의 경호에 관한 법률」에 따른 경호업무(경호처 직원과 경호처에 파견된 사람만 해당)</li>
+                                                <li>간첩체포 및 대 테러활동 등 국가안전보장 직무(국가정보원 직원만 해당)</li>
+                                            </ul>
+                                        </td>
+                                        <td class="agn_c">카목</td>
+                                        <td class="agn_c">2006.1.30.이후<br/>(안장시스템)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="agn_c"><span class="txt_b">공무원</span></td>
+                                        <td>
+                                            <span class="txt_b">순직공무원 및 공상공무원 ※ 안장심의대상</span>
+                                            <ul class="small_ullist">
+                                                <li>위험한 직무에 준하는 직무수행 중 사망 또는 상이1~3급(공무원 수당 등에 관한 규정에 의거 위험근무수당이 지급되는 위험한 직무수행</li>
+                                            </ul>
+                                        </td>
+                                        <td class="agn_c">타목</td>
+                                        <td class="agn_c">2006.1.30.이후<br/>(처 본부)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="agn_c"><span class="txt_b">의사상자</span></td>
+                                        <td>
+                                            <span class="txt_b">의사자 및 의상자</span>(부상등급 1~3급)<span class="txt_b"> ※ 안장심의대상</span>
+                                            <ul class="small_ullist">
+                                                <li>위험한 직무에 준하는 직무수행 중 사망 또는 상이1~3급(공무원 수당 등에 관한 규정에 의거 위험근무수당이 지급되는 위험한 직무수행</li>
+                                            </ul>
+                                        </td>
+                                        <td class="agn_c">차목</td>
+                                        <td class="agn_c">1970.8.4.이후<br/>(처 본부)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="agn_c"><span class="txt_b">종군기자</span></td>
+                                        <td>정부의 승인을 얻어 전투 또는 군 작전에 종군하는 기자로서 그 전투 또는 군작전에 종군 중 사망 또는 상이자</td>
+                                        <td class="agn_c">다목</td>
+                                        <td class="agn_c">제한없음<br/>(안장시스템)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="agn_c"><div class="txt_red"><span class="txt_b">독도의용수비대</span></div></td>
+                                        <td><div class="txt_red">독도의용수비대지원법 2조1호에 따른 독도의용수비대의 대원으로서 사망한사람</div></td>
+                                        <td class="agn_c"><div class="txt_red">하목</div></td>
+                                        <td class="agn_c"><div class="txt_red">제한없음<br/>(신청본부 문의)</div></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- 리스트 -->
+                        <div class="ullist_group mt30">
+                            <ul class="big_ullist">
+                                <li>
+                                    안장 배제 대상 (법 제5조 제3항)
+                                    <ul class="big_sub_list">
+                                        <li>대한민국 국적 상실자 (독립유공자, 재일학도의용군인 제외) / 2014.01.17 00:00 이후 사망한 국적상실자는 심의대상에 해당</li>
+                                        <li>현역군인과 소집중인 군인 및 군무원으로 복무 중 전사 또는 순직 외의 사유로 사망한 사람</li>
+                                        <li>탄핵 또는 징계처분에 의하여 파면 또는 해임 된 사람</li>
+                                        <li>국가유공자 등 예우 및 지원에 관한 법률 제79조 제1항 제1호 ~ 제4호 해당자</li>
+                                    </ul>
+                                    <ul class="small_ullist">
+                                        <li><span class="txt_b">제1호 :</span> 국가보안법 위반으로 금고 이상 실형 선고 받고 그형이 확정된 자</li>
+                                        <li><span class="txt_b">제2호 :</span> 형법87조~90조(내란죄),101조~103조(외환죄). 103조(전시군수계약불이행)를 위반하여 금고 이상 실형 선고 받고 그형이 확정된 자</li>
+                                        <li><span class="txt_b">제3호 :</span> 국가유공자 예우법 제79조 제1항 제3호의 범죄(살인, 약취유인, 강간, 강도 등)로 금고 1년 이상 실형 선고 받고 그형이 확정된 자</li>
+                                        <li><span class="txt_b">제4호 :</span> 공무원(대통령령으로 정한)으로 재직 중 직무와 관련된 죄(뇌물죄,횡령배임죄, 알선수재)를 범하여 금고1년이상의 형을 선고받고 형이 확정된 사람</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- //container -->
+
+    <!-- footer -->
+    <footer>
+        <div class="inner">
+            <h2 class="footer_logo"><a href="">국립대전현충원</a></h2>
+            <div class="footer_cont">
+                <ul class="footer_link">
+                    <li><a href="">개인정보처리방침</a></li>
+                    <li><a href="">이메일집단수집거부</a></li>
+                    <li><a href="">홈페이지개선의견</a></li>
+                    <li><a href="">정보마당</a></li>
+                    <li><a href="">저작권보호정책</a></li>
+                    <li><a href="">이용안내</a></li>
+                    <li><a href="">찾아오시는길</a></li>
+                </ul>
+                <ul class="info">
+                    <li>34151 대전광역시 유성구 현충원로 251(갑동 산 23-1) </li>
+                    <li>TEL : 042)718-7114</li>
+                    <li>FAX : 042)718-7120</li>
+                </ul>
+                <div class="copyright">COPYRIGHT © 2023 BY DAEJEON NATIONAL CEMETERY. ALL RIGHTS RESERVED.</div>
+            </div>
+        </div>
+    </footer>
+    <!-- //footer -->
+
+    <!-- 안장자 묘역 QR코드 -->
+    <div class="QRcord_box">
+        <div class="img">
+            <img src="../images/content/img_QRcord.svg" alt="안장자묘역 QR코드">
+        </div>
+        <span>안장자 묘역 QR코드</span>
+    </div>
+
+</div>
+
+</body>
+</html>
