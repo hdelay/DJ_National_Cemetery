@@ -821,6 +821,7 @@ footer .footer_logo a {
     .header_bottom {
         height: 64px;
         box-sizing: border-box;
+        border-bottom: none;
     }
     header nav > ul {
         display: none;
