@@ -53,9 +53,10 @@ table caption {
     --gray-color: #eef3f9;
 
     /* font */
-    --small-size: 13px;
-    --default-size: 14px;
-    --big-size: 16px;
+    --small-size: 0.8125rem; /* 13px */
+    --default-size: 0.875rem; /* 14px */
+    --big-size: 1rem; /* 16px */
+    --middle-size: 0.9375rem; /* 15px */
 }
 
 /* skip nav */
@@ -133,7 +134,6 @@ table caption {
 ============================================================ */
 
 /* 변수 */
-:root {
-    /* font */
+/* :root {
     --default-size: 13px;
-}
+} */

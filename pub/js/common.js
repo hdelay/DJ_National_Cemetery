@@ -36,15 +36,6 @@ window.onload = function(){
         $("." + on_tab).addClass('on');
     });
 
-    // 메인 swiper
-    const swiper = new Swiper('.swiper', {
-        loop: true,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-    });
-
     // 모바일 header
     const m_menu_btn = document.querySelectorAll('.allmenu_btn'); // 모바일 메뉴 버튼
     const m_menu_cont = document.querySelectorAll('.allmenu_cont'); // 모바일 메뉴

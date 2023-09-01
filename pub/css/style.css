@@ -238,7 +238,7 @@ nav > ul > li > ul > li:hover > a::after {
 .header_bottom .util_box .search_box a,
 .header_bottom .util_box .search_box button {
     width: 20px;
-    height: 22px;
+    height: 1.375rem;
     background: url(../images/ico/ico_search.svg) no-repeat center;
     text-indent: -9999px;
     cursor: pointer;
@@ -329,7 +329,7 @@ nav > ul > li > ul > li:hover > a::after {
 }
 .tab_group.main_tab .tab_btn ul li a {
     display: block;
-    padding: 6px 22px 6px 22px;
+    padding: 6px 1.375rem 6px 1.375rem;
     border-radius: 8px;
     font-size: var(--big-size);
 }
@@ -361,7 +361,7 @@ nav > ul > li > ul > li:hover > a::after {
     height: 100%;
 }
 .notice_box .notice_cont a .txt .tit {
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 500;
     color: #fff;
 }
@@ -428,7 +428,7 @@ nav > ul > li > ul > li:hover > a::after {
 }
 .announcement_space_box a .txt .tit {
     color: #fff;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 500;
 }
 .announcement_space_box a .txt span {
@@ -638,7 +638,7 @@ footer .footer_logo a {
     display: block;
     width: 85px;
     text-align: center;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 500;
     color: #fff;
 }
@@ -663,7 +663,7 @@ footer .footer_logo a {
     display: block;
     padding: 12px;
     font-size: var(--big-size);
-    font-weight: 600;
+    font-weight: 500;
     color: #777;
     transition: .2s;
 }
@@ -687,10 +687,12 @@ footer .footer_logo a {
 /* 설명바 */
 .info_bar {
     display: flex;
+    align-items: center;
     gap: 24px;
     padding: 16px;
     background-color: var(--gray-color);
     border-radius: 150px;
+    margin-bottom: 38px;
 }
 .info_bar .img {
     display: block;
@@ -703,6 +705,8 @@ footer .footer_logo a {
     display: block;
 }
 .info_bar .cont {
+    display: flex;
+    align-items: center;
     width: calc(100% - 120px - 24px);
 }
 .info_bar + .btn_box_group {
@@ -752,6 +756,125 @@ footer .footer_logo a {
 }
 .spouse_process_img .pc_hidden {
     width: 100%;
+}
+
+/* 일일합동 안장식 */
+.saddle_decoration_swiper {
+    display: flex;
+    height: 528px;
+}
+.saddle_decoration_swiper .swiper-wrapper {
+    width: calc(100% - 164px - 24px);
+}
+.saddle_decoration_swiper .img {
+    width: calc(100% - 164px - 24px);
+    height: 100%;
+}
+.saddle_decoration_swiper .img img {
+    width: 100%;
+}
+.saddle_decoration_swiper .swiper-pagination {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 7px;
+    position: inherit;
+    bottom: inherit;
+    left: inherit;
+    width: 164px;
+    padding-left: 24px;
+    margin-left: 0;
+    margin-bottom: 0;
+    background-color: #fff;
+}
+.saddle_decoration_swiper .swiper-pagination .swiper-pagination-bullet {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    height: auto;
+    background: transparent;
+}
+.saddle_decoration_swiper .swiper-pagination .swiper-pagination-bullet .num {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    padding: 6px 12px;
+    background-color: #d9d9d9;
+    text-align: center;
+    font-size: 1.375rem;
+    font-weight: 600;
+    color: #bbb;
+}
+.saddle_decoration_swiper .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active .num {
+    background-color: var(--light-brown-color);
+    color: #fff;
+}
+.saddle_decoration_swiper .swiper-pagination .swiper-pagination-bullet .txt {
+    display: block;
+    width: calc(100% - 42px - 12px);
+    font-size: var(--default-size);
+    font-weight: 600;
+    color: #575757;
+}
+
+/* 현충탑 참배 */
+.etc_img_box {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+.worship_procedure_box {
+    display: flex;
+    padding: 12px 0 0;
+    box-sizing: border-box;
+}
+.worship_procedure_box > div {
+    display: flex;
+}
+.worship_procedure_box > div li {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    gap: 12px;
+    width: 138px;
+}
+.worship_procedure_box > div li::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 19px;
+    right: 5px;
+    width: 84px;
+    height: 6px;
+    background: url(../images/ico/ico_line.svg) no-repeat center;
+}
+.worship_procedure_box > div:last-child li:last-child::after {
+    display: none;
+}
+.worship_procedure_box > div li .num {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: var(--navy-color);
+    font-size: 1.375rem;
+    font-weight: 500;
+    color: #fff;
+}
+.worship_procedure_box > div li .txt {
+    display: block;
+    width: 100px;
+    word-break: keep-all;
+    font-size: var(--default-size);
+    font-weight: 600;
+    color: #575757;
 }
 
 /* ============================================================
@@ -1147,7 +1270,7 @@ footer .footer_logo a {
         background-color: var(--gray-color);
         border-radius: 12px;
         box-shadow: 1px 2px 4px 3px rgba(0, 0, 0, .2);
-        font-size: 18px;
+        font-size: 1.125rem;
         font-weight: 600;
         transition: .2s;
     }
@@ -1231,6 +1354,80 @@ footer .footer_logo a {
     }
     .info_bar .cont {
         width: calc(100% - 60px - 24px);
+    }
+
+    /* 일일합동 안장식 */
+    .saddle_decoration_swiper {
+        flex-direction: column-reverse;
+        height: auto;
+    }
+    .saddle_decoration_swiper .swiper-wrapper {
+        width: 100%;
+    }
+    .saddle_decoration_swiper .img {
+        width: 100%;
+    }
+    .saddle_decoration_swiper .swiper-pagination {
+        flex-direction: row;
+        gap: inherit;
+        padding-left: 0;
+        width: 100%;
+        margin-bottom: 12px;
+    }
+    .saddle_decoration_swiper .swiper-pagination .swiper-pagination-bullet .num {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+    .saddle_decoration_swiper .swiper-pagination .swiper-pagination-bullet .txt {
+        display: none;
+    }
+
+    /* 현충탑 참배 */
+    .etc_img_box {
+        margin-bottom: 30px;
+    }
+    .etc_img_box img {
+        display: block;
+        width: 100%;
+    }
+    .worship_procedure_box {
+        flex-direction: column;
+    }
+    .worship_procedure_box > div {
+        justify-content: center;
+    }
+    .worship_procedure_box > div:last-child {
+        flex-direction: row-reverse;
+        margin-top: 40px;
+    }
+    .worship_procedure_box > div li {
+        width: calc(33.33% - 5px);
+    }
+    .worship_procedure_box > div li::after {
+        top: 13px;
+        right: 5px;
+        width: 67px;
+        background: url(../images/ico/ico_line.svg) no-repeat right center;
+    }
+    .worship_procedure_box > div:nth-child(2) li:nth-child(1)::after {
+        display: none;
+    }
+    .worship_procedure_box > div:nth-child(2) li:nth-child(3)::after {
+        display: block;
+    }
+    .worship_procedure_box > div:nth-child(1) li:nth-child(3)::after {
+        top: inherit;
+        left: 3px;
+        right: inherit;
+        bottom: -26px;
+        width: 27px;
+        transform: rotate(90deg);
+    }
+    .worship_procedure_box > div li .num {
+        width: 32px;
+        height: 32px;
+        font-size: var(--default-size);
     }
 
     /* qr코드 */
