@@ -715,6 +715,16 @@ footer .footer_logo a {
 .info_bar .cont .big_ullist {
     margin-top: 0;
 }
+.info_bar.no_img {
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 58px;
+    gap: 10px;
+}
+.info_bar.no_img > .big_sub_list {
+    margin-top: 0;
+}
 
 /* 안장/이장 신청 */
 .application_procedure_box {
@@ -828,6 +838,9 @@ footer .footer_logo a {
     justify-content: center;
     margin-bottom: 50px;
 }
+.etc_img_box img {
+    max-width: 800px;
+}
 .worship_procedure_box {
     display: flex;
     padding: 12px 0 0;
@@ -875,6 +888,76 @@ footer .footer_logo a {
     font-size: var(--default-size);
     font-weight: 600;
     color: #575757;
+}
+
+/* 추모의 편지 */
+.identity_verification_box {
+    display: flex;
+    justify-content: space-between;
+}
+.identity_verification_box li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    border: 1px solid #DDD;
+    box-sizing: border-box;
+    width: calc(50% - 20px);
+    padding: 80px 24px;
+}
+.identity_verification_box li .tit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: var(--default-size);
+    font-weight: 600;
+    color: #575757;
+}
+.identity_verification_box li .tit::before {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 78px;
+    background: no-repeat center;
+    margin-bottom: 16px;
+}
+.identity_verification_box li.mobile .tit::before {
+    background-image: url(../images/ico/ico_mobile_verification.svg);
+}
+.identity_verification_box li.ipin .tit::before {
+    background-image: url(../images/ico/ico_ipin_verification.svg);
+}
+.identity_verification_box li .txt {
+    display: block;
+    width: 300px;
+    margin-top: 12px;
+    word-break: keep-all;
+    text-align: center;
+    font-size: var(--default-size);
+    color: #575757;
+}
+.identity_verification_box li .btn_box {
+    margin-top: 40px;
+}
+
+.identity_verification_list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 70px;
+}
+.identity_verification_list dt {
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+.identity_verification_list dd {
+    font-size: var(--default-size);
+    color: #575757
+}
+.identity_verification_list dd .small_ullist {
+    margin-top: 12px;
+    padding-left: 12px;
 }
 
 /* ============================================================
@@ -1355,6 +1438,9 @@ footer .footer_logo a {
     .info_bar .cont {
         width: calc(100% - 60px - 24px);
     }
+    .info_bar.no_img{
+        padding: 16px 24px;
+    }
 
     /* 일일합동 안장식 */
     .saddle_decoration_swiper {
@@ -1428,6 +1514,18 @@ footer .footer_logo a {
         width: 32px;
         height: 32px;
         font-size: var(--default-size);
+    }
+
+    /* 추모의 편지 */
+    .identity_verification_box {
+        flex-direction: column;
+    }
+    .identity_verification_box li {
+        padding: 24px;
+        width: 100%;
+    }
+    .identity_verification_box li + li {
+        margin-top: 32px;
     }
 
     /* qr코드 */
