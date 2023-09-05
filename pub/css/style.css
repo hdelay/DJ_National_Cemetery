@@ -771,14 +771,13 @@ footer .footer_logo a {
 /* 일일합동 안장식 */
 .saddle_decoration_swiper {
     display: flex;
-    height: 528px;
 }
 .saddle_decoration_swiper .swiper-wrapper {
     width: calc(100% - 164px - 24px);
 }
 .saddle_decoration_swiper .img {
     width: calc(100% - 164px - 24px);
-    height: 100%;
+    height: 680px;
 }
 .saddle_decoration_swiper .img img {
     width: 100%;
@@ -792,6 +791,7 @@ footer .footer_logo a {
     bottom: inherit;
     left: inherit;
     width: 164px;
+    height: 680px;
     padding-left: 24px;
     margin-left: 0;
     margin-bottom: 0;
