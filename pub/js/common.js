@@ -106,5 +106,58 @@ window.onload = function(){
         this.parentElement.parentElement.classList.toggle('on');
     });
 
+    // 팝업
+    const body = document.querySelector('body');
+    let target = document.querySelectorAll('.pop_open');
+    let btnPopClose = document.querySelectorAll('.pop_close');
+    let targetID;
+    const newDim = document.createElement('div'); // dim
+    newDim.className = 'dim';
+
+    // 팝업 열기
+    for(let i = 0; i < target.length; i++){
+        target[i].addEventListener('click', function(){
+            body.appendChild(newDim);
+            targetID = this.getAttribute('data-target');
+            document.querySelector(targetID).style.display = 'flex';
+            body.style.overflow = 'hidden';
+        });
+    }
+    
+    // 팝업 닫기
+    for(let j = 0; j < btnPopClose.length; j++){
+        btnPopClose[j].addEventListener('click', function(){
+            newDim.remove();
+            this.parentNode.parentNode.style.display = 'none';
+            body.style.overflow = '';
+        });
+    }
+
+    // 파일업로드
+    const file_inp_g = document.querySelectorAll('.file_inp');
+    for(i = 0; i < file_inp_g.length; i++){
+        // const file_inp = document.querySelector('.file_inp');
+        const file_inp = file_inp_g[i];
+        file_inp.addEventListener('change', function(){
+            let fileList;
+            for(i = 0; i < file_inp.files.length; i++){
+                fileList = file_inp.files[i].name;
+            }
+            const file_txt = file_inp.nextSibling.nextSibling;
+            file_txt.value = fileList;
+        });
+    }
+
+    // 팝업 뒤 html 스크롤 조정가능여부
+    // window.addEventListener('scroll', function() {
+    //     const htmlEl = document.getElementsByTagName('html')[0];
+        
+    //     if(popupOpenType) {
+    //         htmlEl.scrollTop = beforeScrollPosition;
+    //     } else {
+    //         beforeScrollPosition = htmlEl.scrollTop;
+    //     }
+    // });
+
 
 }

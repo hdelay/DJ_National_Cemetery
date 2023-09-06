@@ -40,6 +40,14 @@
 .pc_hidden {display: none;} 
 
 /* 텍스트 */
+div + span[class^="txt_"],
+div + div[class^="txt_"] {
+    margin-top: 5px;
+}
+span[class^="txt_"],
+div[class^="txt_"] {
+    line-height: 1.3;
+}
 .txt_b {
     font-weight: 500;
 }
@@ -52,6 +60,21 @@
 }
 .txt_blue {
     color: var(--navy-color);
+}
+.txt_light_brown {
+    color: var(--light-brown-color);
+}
+.txt_batang_tit {
+    font-family: 'NotoSerifKR';
+    font-weight: 500;
+    font-size: 1.75rem;
+    color: #333;
+}
+.txt_batang_cont {
+    font-family: 'NotoSerifKR';
+    font-weight: 300;
+    font-size: 1.125rem;
+    color: var(--light-brown-color);
 }
 
 /* 테이블 border */
@@ -117,6 +140,7 @@
     border: 1px solid transparent;
     border-radius: 8px;
     box-sizing: border-box;
+    line-height: 1.4;
     font-size: var(--big-size);
     font-weight: 500;
     cursor: pointer;
@@ -154,6 +178,10 @@
 .btn_box_group.justify_between .right {
     display: flex;
     gap: 12px;
+}
+.btn_box_group.left {
+    justify-content: flex-start;
+    flex-wrap: wrap;
 }
 
 /* rdo_box 라디오박스 */

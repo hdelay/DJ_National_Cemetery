@@ -617,6 +617,69 @@ footer .footer_logo a {
     color: #bbb;
 }
 
+/* 팝업 */
+.pop_box {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 744px;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 12px;
+    box-sizing: border-box;
+    z-index: 13;
+}
+.dim {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .6);
+    z-index: 12;
+}
+.pop_box .pop_header {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #ddd;
+}
+.pop_box .pop_header h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+.pop_box .pop_header a {
+    display: block;
+    position: relative;
+    width: 27px;
+    height: 27px;
+    text-indent: -9999px;
+}
+.pop_box .pop_header a::before,
+.pop_box .pop_header a::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 12px;
+    left: 3px;
+    width: 23px;
+    height: 2px;
+    border-radius: 2px;
+    background-color: #333;
+}
+.pop_box .pop_header a::before {
+    transform: rotate(45deg);
+}
+.pop_box .pop_header a::after {
+    transform: rotate(-45deg);
+}
+.pop_box .pop_cont {
+    padding: 12px 24px;
+}
+
 /* qr코드 */
 .QRcord_box {
     display: none;
@@ -703,6 +766,9 @@ footer .footer_logo a {
 }
 .info_bar .img img {
     display: block;
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 100%;
 }
 .info_bar .cont {
     display: flex;
@@ -958,6 +1024,141 @@ footer .footer_logo a {
 .identity_verification_list dd .small_ullist {
     margin-top: 12px;
     padding-left: 12px;
+}
+
+/* 온라인 참배 */
+.online_worship_tit {
+    display: flex;
+    flex-direction: column;
+}
+.online_worship_tit .txt_batang_tit {
+    margin-bottom: 20px;
+}
+.online_worship_box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.online_worship_box > .img {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    width: 600px;
+    height: 600px;
+    border-radius: 20px;
+}
+.online_worship_box > .img > img {
+    width: 100%;
+}
+.online_worship_box > .img .list {
+    display: flex;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 20px;
+}
+.online_worship_box > .img .list li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 12px;
+    background-color: #fff;
+    border: 3px dashed #bbb;
+    box-sizing: border-box;
+}
+.online_worship_box > .img .list li .img {
+    display: block;
+    width: 79px;
+    height: 79px;
+    border-radius: 12px;
+    background: #575757 no-repeat center;
+}
+.online_worship_box > .img .list li.offering .img {background-image: url(../images/content/img_online_worship_cont_01.svg); background-position: center bottom; background-size: 61px auto;}
+.online_worship_box > .img .list li.incense .img {background-image: url(../images/content/img_online_worship_cont_02.svg); background-size: 69px auto;}
+.online_worship_box > .img .list li.meditation .img {background-image: url(../images/content/img_online_worship_cont_03.svg); background-color: #ddd; background-size: 40px auto;}
+.online_worship_box > .img .list li.on {
+    background-color: #575757;
+    border-color: #575757;
+}
+.online_worship_box > .img .list li.on.meditation {
+    background-color: #ddd;
+    border-color: #ddd;
+}
+.online_worship_box .online_worship_btn {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 24px;
+}
+.online_worship_box .online_worship_btn li {
+    padding: 8px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    transition: .2s;
+}
+.online_worship_box .online_worship_btn li:hover {
+    background-color: var(--gray-color);
+}
+.online_worship_box .online_worship_btn li .img {
+    display: block;
+    width: 120px;
+    height: 120px;
+    border-radius: 12px;
+    background: #575757 no-repeat center;
+}
+.online_worship_box .online_worship_btn li.offering .img {background-image: url(../images/content/img_online_worship_cont_01.svg); background-position: center bottom;}
+.online_worship_box .online_worship_btn li.incense .img {background-image: url(../images/content/img_online_worship_cont_02.svg);}
+.online_worship_box .online_worship_btn li.meditation .img {background-image: url(../images/content/img_online_worship_cont_03.svg); background-color: #ddd;}
+.online_worship_box .online_worship_btn li .txt {
+    display: block;
+    margin-top: 12px;
+    text-align: center;
+    font-size: var(--default-size);
+    font-weight: 500;
+}
+.online_worship_popbox {
+    display: flex;
+    gap: 24px;
+}
+.online_worship_popbox .img {
+    display: block;
+    width: 356px;
+}
+.online_worship_popbox .img img {
+    width: 100%;
+}
+.online_worship_popbox .cont {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: calc(100% - 40px - 356px);
+}
+.online_worship_popbox .cont dl {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+.online_worship_popbox .cont dl dt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 8px;
+    box-sizing: border-box;
+    border-radius: 30px;
+    background-color: var(--light-brown-color);
+    font-size: var(--big-size);
+    font-weight: 500;
+    color: #fff;
+}
+.online_worship_popbox .cont dl dd {
+    padding-right: 20px;
+    box-sizing: border-box;
+    font-size: var(--default-size);
+    letter-spacing: 1px;
 }
 
 /* ============================================================
@@ -1338,6 +1539,23 @@ footer .footer_logo a {
         gap: 5px 20px;
     }
 
+    /* 팝업 */
+    .pop_box {
+        min-width: 0;
+        width: 100%;
+        height: calc(100vh - 64px);
+        top: inherit;
+        left: 0;
+        bottom: 0;
+        transform: translate(0, 0);
+        border-radius: 12px 12px 0 0;
+    }
+    .pop_box .pop_cont {
+        overflow-y: auto;
+        padding: 12px 0;
+        height: calc(100vh - 64px - 40px - 24px);
+    }
+
     /* 주요서비스 */
     .main_service {
         display: block;
@@ -1526,6 +1744,42 @@ footer .footer_logo a {
     }
     .identity_verification_box li + li {
         margin-top: 32px;
+    }
+
+    /* 온라인 참배 */
+    .online_worship_tit .txt_batang_tit {
+        font-size: 1.375rem;
+    }
+    .online_worship_tit .txt_batang_cont {
+        font-size: var(--big-size);
+    }
+    .online_worship_box > .img {
+        width: 100%;
+        height: auto;
+    }
+    .online_worship_box .online_worship_btn {
+        width: 100%;
+    }
+    .online_worship_box .online_worship_btn {
+        justify-content: space-between;
+        gap: 0;
+    }
+    .online_worship_box .online_worship_btn li .img {
+        width: 60px;
+        height: 60px;
+    }
+    .online_worship_box .online_worship_btn li.offering .img {background-size: 40px auto;}
+    .online_worship_box .online_worship_btn li.incense .img {background-size: 35px auto;}
+    .online_worship_box .online_worship_btn li.meditation .img {background-size: 30px auto;}
+
+    .online_worship_popbox {
+        flex-direction: column;
+    }
+    .online_worship_popbox .img {
+        width: 100%;
+    }
+    .online_worship_popbox .cont {
+        width: 100%;
     }
 
     /* qr코드 */
