@@ -456,7 +456,7 @@ document.addEventListener("DOMContentLoaded", function() {
         let firstDayOfMonth = new Date(year, month, 1).getDay();
         let today = new Date(); // 현재 날짜 가져오기
 
-        let table = "<table><caption>달력</caption><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup><thead><tr><th scope='col'>일</th><th scope='col'>월</th><th scope='col'>화</th><th scope='col'>수</th><th scope='col'>목</th><th scope='col'>금</th><th scope='col'>토</th></tr></thead><tbody><tr>";
+        let table = "<table><caption>달력</caption><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup><thead><tr><th scope='col'>SUNDAY</th><th scope='col'>MONDAY</th><th scope='col'>TUESDAY</th><th scope='col'>WEDNESDAY</th><th scope='col'>THURDAY</th><th scope='col'>FRIDAY</th><th scope='col'>SATURDAY</th></tr></thead><tbody><tr>";
 
         // 첫 주의 빈 셀 추가
         for (let i = 0; i < firstDayOfMonth; i++) {

@@ -1266,6 +1266,9 @@ footer .footer_logo a {
 }
 .daypiker .calendar table th {
     border-top: 1px solid #E7E8EA;
+    word-break: break-all;
+    font-size: var(--default-size);
+    font-weight: 500;
 }
 .daypiker .calendar table td {
     height: 120px;
@@ -1273,6 +1276,10 @@ footer .footer_logo a {
 .daypiker .calendar table tr td:first-child,
 .daypiker .calendar table tr th:first-child {
     border-left: 1px solid #E7E8EA;
+}
+.daypiker .calendar table tr td:first-child span,
+.daypiker .calendar table tr th:first-child {
+    color: #EC354B;
 }
 .daypiker .calendar table tr td .todayOne {
     position: relative;
