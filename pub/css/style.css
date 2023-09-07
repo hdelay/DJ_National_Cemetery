@@ -792,6 +792,18 @@ footer .footer_logo a {
     margin-top: 0;
 }
 
+.info_box {
+    display: block;
+    padding: 24px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    background-color: var(--gray-color);
+    margin-bottom: 64px;
+}
+.info_box .big_ullist {
+    margin-top: 0;
+}
+
 /* 안장/이장 신청 */
 .application_procedure_box {
     display: flex;
@@ -1159,6 +1171,169 @@ footer .footer_logo a {
     box-sizing: border-box;
     font-size: var(--default-size);
     letter-spacing: 1px;
+}
+
+/* 봉사활동 신청 */
+.daypiker .ui-datepicker-inline {
+    width: 100%;
+    border: none;
+    box-shadow: none;
+}
+.daypiker .ui-datepicker-header {
+    justify-content: flex-start;
+    padding: 0;
+    width: auto;
+    background-color: transparent;
+    margin-bottom: 10px;
+}
+.daypiker .ui-datepicker-header .ui-datepicker-title {
+    flex-direction: row-reverse;
+    gap: 2px;
+}
+.daypiker .ui-datepicker-header .ui-datepicker-title span {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.daypiker .ui-datepicker .ui-datepicker-prev {
+    left: inherit;
+    right: 29px;
+}
+
+.daypiker {
+    position: relative;
+}
+.daypiker .calendar-title {
+    display: flex;
+    margin-bottom: 10px;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 10px;
+}
+.daypiker .calendar-title span {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.daypiker .calendar-btn {
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    top: 5px;
+    right: 0;
+}
+.daypiker .calendar-btn button {
+    display: flex;
+    position: relative;
+    text-indent: -9999px;
+    width: 27px;
+    height: 27px;
+    background-color: #fff;
+    border-radius: 5px;
+    transition: .2s;
+    cursor: pointer;
+}
+.daypiker .calendar-btn button:hover {
+    background-color: #ddd;
+}
+.daypiker .calendar-btn button::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border: 1px solid #333;
+    border-width: 0 2px 2px 0;
+}
+.daypiker .calendar-btn button.prevMonth::after {
+    top: 8px;
+    left: 10px;
+    transform: rotate(135deg);
+}
+.daypiker .calendar-btn button.nextMonth::after {
+    top: 8px;
+    left: 5px;
+    transform: rotate(-45deg);
+}
+.daypiker .calendar table {
+    width: 100%;
+}
+.daypiker .calendar table td,
+.daypiker .calendar table th {
+    padding: 8px;
+    box-sizing: border-box;
+    border-right: 1px solid #E7E8EA;
+    border-bottom: 1px solid #E7E8EA;
+    width: calc(100% / 7);
+}
+.daypiker .calendar table th {
+    border-top: 1px solid #E7E8EA;
+}
+.daypiker .calendar table td {
+    height: 120px;
+}
+.daypiker .calendar table tr td:first-child,
+.daypiker .calendar table tr th:first-child {
+    border-left: 1px solid #E7E8EA;
+}
+.daypiker .calendar table tr td .todayOne {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 4px 0 0 5px;
+    height: 100%;
+    font-size: var(--big-size);
+    font-weight: 500;
+}
+.daypiker .calendar table tr td.today .todayOne::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 5px;
+    left: -2px;
+    width: 24px;
+    height: 24px;
+    background-color: #D2F0FF;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.schedule_box {
+    display: flex;
+    gap: 4px;
+    flex-direction: column;
+    width: 100%;
+    text-align: left;
+}
+.schedule_box .group_box {
+    font-size: var(--small-size);
+    font-weight: 500;
+    color: var(--light-brown-color);
+}
+.schedule_box > div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.schedule_box > div strong {
+    font-size: var(--small-size);
+    font-weight: 600;
+}
+.schedule_box > div .state {
+    display: flex;
+    padding: 0 8px;
+    border-radius: 4px;
+    font-size: var(--small-size);
+}
+.schedule_box > div .state.possible {
+    background-color: #D2F0FF;
+}
+.schedule_box > div .state.impossible {
+    background-color: #FFD9D9;
+}
+.schedule_box > div .state span {
+    font-size: var(--small-size);
 }
 
 /* ============================================================
@@ -1780,6 +1955,24 @@ footer .footer_logo a {
     }
     .online_worship_popbox .cont {
         width: 100%;
+    }
+
+    /* 봉사활동 신청 */
+    .daypiker .ui-datepicker td {
+        height: auto;
+        min-height: 120px;
+        padding: 4px;
+    }
+    .schedule_box > div {
+        flex-direction: column;
+        gap: 2px;
+        align-items: flex-start;
+    }
+    .schedule_box > div .state {
+        padding: 0 3px !important;
+    }
+    .schedule_box > div .state span {
+        display: none;
     }
 
     /* qr코드 */
