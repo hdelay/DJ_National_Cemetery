@@ -95,6 +95,12 @@ div[class^="txt_"] {
     font-size: 1.25rem;
     font-weight: 600;
 }
+.tit_box h5 {
+    margin-bottom: 12px;
+    font-size: var(--default-size);
+    font-weight: 600;
+    color: #333;
+}
 .tit_box.sel_search {
     display: flex;
     justify-content: space-between;
@@ -145,6 +151,11 @@ div[class^="txt_"] {
     font-weight: 500;
     cursor: pointer;
     transition: .2s;
+}
+.btn_box_group.small .btn_box > * {
+    padding: 8px 16px;
+    line-height: 1;
+    font-size: var(--default-size);
 }
 .btn_box .btn_lineblack {
     border: 1px solid #333;
@@ -563,6 +574,39 @@ a.ui-button:active,
     padding: 8px 10px;
     border-radius: 4px;
     font-size: var(--default-size);
+}
+.txt_chk_box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.txt_chk_box > span {
+    width: calc(100% - 70px);
+}
+.form_group.rdo3_inp {
+    flex-direction: column;
+}
+.form_group.file_box {
+    margin-top: 5px;
+    align-items: center;
+}
+.form_group.file_box .file_inp {
+    position: absolute;
+    left: -9999px;
+}
+.form_group.file_box .file_inp + label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 36px;
+    background-color: #333;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+}
+.form_group.file_box .form_box {
+    width: calc(100% - 110px);
 }
 
 /* 테이블 */
@@ -1287,6 +1331,8 @@ li .step_list {
     }
     .form_group.inp_btn .btn_box > * {
         width: 60px;
+    }
+    .txt_chk_box {
     }
     
     /* 테이블 */

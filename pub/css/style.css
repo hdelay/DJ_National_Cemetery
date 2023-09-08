@@ -719,9 +719,6 @@ footer .footer_logo a {
 .sub_nav li {
     border-right: 1px solid #ddd;
 }
-.sub_nav li:first-child {
-    border-left: 1px solid #ddd;
-}
 .sub_nav li a {
     display: block;
     padding: 12px;
@@ -742,6 +739,9 @@ footer .footer_logo a {
 }
 .sub_content .tit_box {
     margin-bottom: 50px;
+}
+.sub_content .tit_box.h5tit {
+    margin-bottom: 0;
 }
 .sub_content .tab_group.dep_main .tab_content {
     margin-top: 40px;
@@ -1343,6 +1343,31 @@ footer .footer_logo a {
     font-size: var(--small-size);
 }
 
+/* 봉사활동 신청 동의페이지 */
+.scroll_box {
+    overflow-y: auto;
+    width: 100%;
+    padding: 12px 16px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    color: #575757;
+}
+.scroll_box.personal_infomation {
+    height: 300px;
+}
+.scroll_box.volunteering {
+    height: 145px;
+    margin-bottom: 38px;
+}
+.scroll_box .big_sub_list {
+    margin-top: 0;
+}
+.scroll_box .tit_box h5,
+.scroll_box .txt_b {
+    color: #575757;
+}
+
 /* ============================================================
     미디어쿼리 min-width: 1920px
 ============================================================ */
@@ -1821,6 +1846,9 @@ footer .footer_logo a {
     }
     .sub_content .tit_box {
         margin-bottom: 30px;
+    }
+    .sub_content .tit_box.h5tit {
+        margin-bottom: 0;
     }
 
     /* 설명바 */

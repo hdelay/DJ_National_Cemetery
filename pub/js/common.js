@@ -135,29 +135,18 @@ window.onload = function(){
 
     // 파일업로드
     const file_inp_g = document.querySelectorAll('.file_inp');
-    for(i = 0; i < file_inp_g.length; i++){
-        // const file_inp = document.querySelector('.file_inp');
+    for(let i = 0; i < file_inp_g.length; i++){
         const file_inp = file_inp_g[i];
         file_inp.addEventListener('change', function(){
             let fileList;
-            for(i = 0; i < file_inp.files.length; i++){
-                fileList = file_inp.files[i].name;
+            for(let j = 0; j < file_inp.files.length; j++){
+                fileList = file_inp.files[j].name;
             }
-            const file_txt = file_inp.nextSibling.nextSibling;
+            const file_txt = file_inp.nextSibling.nextSibling.nextSibling.nextSibling.querySelector('.file_value');
+            console.log(file_txt);
             file_txt.value = fileList;
         });
     }
-
-    // 팝업 뒤 html 스크롤 조정가능여부
-    // window.addEventListener('scroll', function() {
-    //     const htmlEl = document.getElementsByTagName('html')[0];
-        
-    //     if(popupOpenType) {
-    //         htmlEl.scrollTop = beforeScrollPosition;
-    //     } else {
-    //         beforeScrollPosition = htmlEl.scrollTop;
-    //     }
-    // });
 
 
 }
