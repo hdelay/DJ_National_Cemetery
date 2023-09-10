@@ -25,6 +25,7 @@
 .mt40{margin-top: 40px !important;}
 .mt50{margin-top: 50px !important;}
 .mt60{margin-top: 60px !important;}
+.mb0{margin-bottom: 0 !important;}
 .mb5{margin-bottom: 5px !important;}
 .mb10{margin-bottom: 10px !important;}
 .mb20{margin-bottom: 20px !important;}
@@ -94,6 +95,12 @@ div[class^="txt_"] {
     text-align: center;
     font-size: 1.25rem;
     font-weight: 600;
+}
+.tit_box.left h4 {
+    text-align: left;
+}
+.tit_box.left.pop h4 {
+    font-size: 1.125rem;
 }
 .tit_box h5 {
     margin-bottom: 12px;
@@ -184,6 +191,9 @@ div[class^="txt_"] {
     display: flex;
     justify-content: space-between;
     margin-top: 60px;
+}
+.pop_cont .btn_box_group.justify_between {
+    margin-top: 12px;
 }
 .btn_box_group.justify_between .left,
 .btn_box_group.justify_between .right {
@@ -357,6 +367,9 @@ div[class^="txt_"] {
 }
 .chk_box.solo input + label {
     padding-left: 19px;
+}
+.pop_cont .chk_box.solo {
+    margin: 12px 0;
 }
 
 /* select 셀렉스박스 */
@@ -729,7 +742,6 @@ a.ui-button:active,
     box-sizing: border-box;
 }
 .tbl_board table tr th {
-    padding: 12px 4px;
     background-color: #E4D8CE;
     line-height: 46px;
     text-align: center;
@@ -739,7 +751,6 @@ a.ui-button:active,
 }
 .tbl_board table tr td {
     padding: 0 4px;
-    word-break: keep-all;
     font-size: var(--default-size);
     line-height: 23px;
 }
@@ -820,8 +831,10 @@ a.ui-button:active,
 .card_board ul li a .cont {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     padding: 16px;
     box-sizing: border-box;
+    height: calc(100% - 200px);
 }
 .card_board ul li a .cont .tit {
     display: -webkit-box;
@@ -908,7 +921,14 @@ a.ui-button:active,
 }
 
 /* 테이블 상태 아이콘 */
+.state_box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 12px 0;
+}
 .state_box > * {
+    display: block;
     padding: 2px 4px;
     border-radius: 4px;
     font-size: 13px;
@@ -920,6 +940,41 @@ a.ui-button:active,
 }
 .state_box > .state_blue {
     background-color: var(--blue-color);
+}
+.state_box > .state_lightblue {
+    background-color: #D2F0FF;
+    color: #333;
+}
+.state_box > .state_lightpink {
+    background-color: #FFD9D9;
+    color: #333;
+}
+.state_box > .state_lightgray {
+    background-color: #999;
+}
+
+/* 다운로드 btn */
+.board_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 12px 0;
+}
+.board_btn > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    padding: 8px;
+    border-radius: 8px;
+    font-size: var(--default-size);
+    color: #fff;
+}
+.board_btn .blue {
+    background-color: var(--blue-color);
+}
+.board_btn .gray {
+    background-color: #999;
 }
 
 /* 다운로드파일 아이콘 */
@@ -1184,6 +1239,7 @@ li .step_list {
 .dep_main > .tab_btn > ul {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 10px;
 }
 .dep_main > .tab_btn > ul > li > a {
