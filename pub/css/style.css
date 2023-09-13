@@ -101,7 +101,8 @@ header {
     display: block;
     width: 170px;
     height: 45px;
-    background: url(../images/logo.jpg) no-repeat center;
+    background: url(../images/logo.png) no-repeat center;
+    background-size: 100% auto;
     text-indent: -9999px;
 }
 
@@ -592,6 +593,7 @@ footer .footer_logo a {
     width: 170px;
     height: 45px;
     background: url(../images/f_logo.png) no-repeat center;
+    background-size: 100% auto;
     text-indent: -9999px;
 }
 .footer_cont .footer_link {
@@ -1368,6 +1370,134 @@ footer .footer_logo a {
     color: #575757;
 }
 
+/* 소식지 */
+.tab_group.newsletter_tab .tab_btn ul {
+    display: flex;
+    gap: 25px;
+}
+.tab_group.newsletter_tab .tab_btn ul li {
+    overflow: hidden;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid transparent;
+    box-sizing: border-box;
+    transition: .2s;
+}
+.tab_group.newsletter_tab .tab_btn ul li a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.tab_group.newsletter_tab .tab_btn ul li a img {
+    width: 100%;
+}
+.tab_group.newsletter_tab .tab_btn ul li:hover,
+.tab_group.newsletter_tab .tab_btn ul li.on {
+    border-color: var(--light-brown-color);
+}
+.tab_group.newsletter_tab .tab_content .img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+.tab_group.newsletter_tab .tab_content .img img {
+    display: block;
+    box-sizing: border-box;
+    padding: 24px;
+    border: 1px solid #ddd;
+}
+
+/* 나라사랑 체험교육 소개 */
+.experiential_education_box {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 32px;
+    margin-top: 50px;
+}
+.experiential_education_box dl {
+    width: calc(33.33% - 22px);
+    padding: 40px 24px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    background-color: var(--gray-color);
+}
+.experiential_education_box dl dt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+.experiential_education_box dl dt .img {
+    height: 78px;
+}
+.experiential_education_box dl dt .img img {
+    display: block;
+    height: 100%;
+}
+.experiential_education_box dl dt strong {
+    font-size: var(--default-size);
+    font-weight: 600;
+}
+.experiential_education_box dl dd {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 16px;
+}
+.experiential_education_box dl dd .time strong {
+    font-size: var(--default-size);
+    font-weight: 600;
+    color: var(--light-brown-color);
+}
+.experiential_education_box dl dd .time strong::after {
+    content: " : ";
+}
+.experiential_education_box dl dd .time span {
+    font-size: var(--default-size);
+}
+.experiential_education_box dl dd .txt {
+    height: 40px;
+    letter-spacing: -.1px;
+    font-size: var(--default-size);
+}
+
+/* 해시태그 */
+.hashtag {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+.hashtag span {
+    display: block;
+    padding: 4px 11px 4px 10px;
+    border-radius: 15px;
+    background-color: #ddd;
+    font-size: var(--small-size);
+    color: #575757;
+}
+.hashtag span::before {
+    content: "# ";
+}
+
+.hashtag_box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 38px;
+    margin-bottom: 56px;
+}
+.hashtag_box .time {
+    font-size: var(--default-size)
+}
+.hashtag_box .time strong {
+    font-weight: 500;
+    color: var(--light-brown-color);
+}
+
 /* ============================================================
     미디어쿼리 min-width: 1920px
 ============================================================ */
@@ -2008,6 +2138,20 @@ footer .footer_logo a {
     }
     .schedule_box > div .state span {
         display: none;
+    }
+    
+    /* 소식지 */
+    .tab_group.newsletter_tab .tab_btn ul {
+        gap: 15px;
+    }
+    .tab_group.newsletter_tab .tab_btn ul li {
+        width: 80px;
+        height: 80px;
+    }
+
+    /* 나라사랑 체험교육 소개 */
+    .experiential_education_box dl {
+        width: 100%;
     }
 
     /* qr코드 */
