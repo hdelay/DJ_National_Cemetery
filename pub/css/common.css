@@ -763,6 +763,7 @@ a.ui-button:active,
 }
 .tbl_board table tr td > a {
     display: flex;
+    justify-content: space-between;
     gap: 5px;
     width: 100%;
     box-sizing: border-box;
@@ -770,6 +771,9 @@ a.ui-button:active,
 }
 .tbl_board table tr td .txt {
     width: calc(100% - 28px);
+}
+.tbl_board table tr td div + div + span.txt {
+    width: calc(100% - 70px);
 }
 .tbl_board table tr td .secret {
     display: flex;
@@ -792,6 +796,16 @@ a.ui-button:active,
     font-size: 12px;
     font-weight: 400;
     color: #fff;
+}
+.tbl_board table tr td .clip {
+    display: flex;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    background: var(--light-brown-color) url(../images/ico/ico_paperclip.svg) no-repeat center;
+    text-indent: -9999px;
 }
 
 /* 카드형 게시판 */
@@ -1369,6 +1383,10 @@ li .step_list {
         width: calc(100% - 24px);
     }
 
+    .big_ullist .img img {
+        width: 100%;
+    }
+
     /* 버튼 */
     .btn_box_group.m_column {
         flex-direction: column;
@@ -1500,8 +1518,14 @@ li .step_list {
         flex-direction: column;
         gap: 10px;
     }
+    .board_search .search_group .search_box.sel2 {
+        flex-wrap: wrap;
+    }
     .board_search .search_group .search_box .form_box.search {
         width: calc(100% - 120px - 8px);
+    }
+    .board_search .search_group .search_box.sel2 .form_box.sel_box:first-child {
+        width: 100%;
     }
     .board_search .search_group .btn_box,
     .board_search .search_group .btn_box > * {

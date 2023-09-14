@@ -1498,6 +1498,53 @@ footer .footer_logo a {
     color: var(--light-brown-color);
 }
 
+/* 나라사랑 영상상영 */
+.video_intro_box {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin-top: 20px;
+}
+.video_intro_box li {
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid #DDD;
+    box-sizing: border-box;
+    width: calc((100% / 5) - 30px);
+}
+.video_intro_box li .img {
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    height: 180px;
+    border-radius: 12px 12px 0px 0px;
+}
+.video_intro_box li .img img {
+    display: block;
+    min-width: 100%;
+    min-height: 100%;
+}
+.video_intro_box li .cont {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px;
+    box-sizing: border-box;
+    margin-top: 12px;
+    font-size: var(--default-size);
+}
+.video_intro_box li .cont .tit {
+    margin-bottom: 4px;
+    font-size: var(--big-size);
+    font-weight: 600;
+    text-align: center;
+}
+.video_intro_box li .cont .age_box {
+    font-weight: 500;
+    color: var(--light-brown-color);
+}
+
 /* ============================================================
     미디어쿼리 min-width: 1920px
 ============================================================ */
@@ -1984,7 +2031,7 @@ footer .footer_logo a {
     /* 설명바 */
     .info_bar {
         border-radius: 20px;
-        align-items: center;
+        align-items: flex-start;
     }
     .info_bar .img {
         width: 60px;
@@ -2152,6 +2199,17 @@ footer .footer_logo a {
     /* 나라사랑 체험교육 소개 */
     .experiential_education_box dl {
         width: 100%;
+    }
+
+    /* 나라사랑 영상상영 */
+    .video_intro_box {
+        flex-wrap: wrap;
+    }
+    .video_intro_box li {
+        width: 100%;
+    }
+    .video_intro_box li .img {
+        height: 300px;
     }
 
     /* qr코드 */
