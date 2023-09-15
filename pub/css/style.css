@@ -1545,6 +1545,14 @@ footer .footer_logo a {
     color: var(--light-brown-color);
 }
 
+/* 차트 */
+.chart_box {
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    margin: 20px 0;
+}
+
 /* ============================================================
     미디어쿼리 min-width: 1920px
 ============================================================ */
@@ -2210,6 +2218,12 @@ footer .footer_logo a {
     }
     .video_intro_box li .img {
         height: 300px;
+    }
+
+    /* 차트 */
+    .chart_box {
+        padding: 10px;
+        box-sizing: border-box;
     }
 
     /* qr코드 */
