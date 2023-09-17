@@ -358,6 +358,25 @@
                         <label for="radio_001">&nbsp;</label>
                     </span>
                 </div>
+
+                <div class="mb10 mt20">라디오박스 버튼</div>
+                <div class="rdo_box btn">
+                    <span>
+                        <input type="radio" id="radio_31" name="rdo_group_03" checked>
+                        <label for="radio_31">여자</label>
+                    </span>
+                    <span>
+                        <input type="radio" id="radio_32" name="rdo_group_03">
+                        <label for="radio_32">남자</label>
+                    </span>
+                </div>
+                <br/>
+                <ul class="processing_status_box">
+                    <li class="on">접수중</li>
+                    <li>처리중</li>
+                    <li>처리완료</li>
+                    <li>답변불필요</li>
+                </ul>
                 
             </dd>
         </dl>
@@ -517,8 +536,12 @@
                                     <th scope="row"><label for="">안장희망일<span class="req"></span></label></th>
                                     <td>
                                         <div class="form_group">
-                                            <div class="form_box datepicker_day">
-                                                <input type="text" id="inp_002" placeholder="YYYY-MM-DD">
+                                            <div class="form_box datepicker_start">
+                                                <input type="text" id="inp_004" placeholder="YYYY-MM-DD">
+                                            </div>
+                                            <span>~</span>
+                                            <div class="form_box datepicker_end">
+                                                <input type="text" id="inp_005" placeholder="YYYY-MM-DD">
                                             </div>
                                         </div>
                                     </td>
@@ -833,26 +856,111 @@
                             </tbody>
                         </table>
                     </div>
-                    
-                    <div class="paging_box">
-                        <ul>
-                            <li class="prev_all"><a href="" title="최신페이지로 이동"></a></li>
-                            <li class="prev"><a href="" title="이전페이지로 이동"></a></li>
-                            <li class="on"><a href="">1</a></li>
-                            <li><a href="">2</a></li>
-                            <li><a href="">3</a></li>
-                            <li><a href="">4</a></li>
-                            <li><a href="">5</a></li>
-                            <li><a href="">10</a></li>
-                            <li><a href="">100</a></li>
-                            <li><a href="">1000</a></li>
-                            <li><a href="">9</a></li>
-                            <li><a href="">10</a></li>
-                            <li class="next"><a href="" title="다음페이지로 이동"></a></li>
-                            <li class="next_all"><a href="" title="마지막페이지로 이동"></a></li>
-                        </ul>
-                    </div>
 
+                </div>
+            </dd>
+            <dd>
+                <div class="mt40 mb20">검색폼</div>
+                <div class="search_item_group">
+                    <div class="search_item type3">
+                        <dl>
+                            <dt><label for="">검색어</label></dt>
+                            <dd>
+                                <div class="form_box">
+                                    <input type="text" id="inp_01" placeholder="입력해 주세요.">
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt><label for="">검색어</label></dt>
+                            <dd>
+                                <div class="form_box">
+                                    <input type="text" id="inp_01" placeholder="입력해 주세요.">
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt><label for="">검색어</label></dt>
+                            <dd>
+                                <div class="form_box">
+                                    <input type="text" id="inp_01" placeholder="입력해 주세요.">
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="search_item type4">
+                        <dl>
+                            <dt><label for="">검색어</label></dt>
+                            <dd>
+                                <div class="form_box">
+                                    <input type="text" id="inp_01" placeholder="입력해 주세요.">
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt><label for="">검색어</label></dt>
+                            <dd>
+                                <div class="form_box">
+                                    <input type="text" id="inp_01" placeholder="입력해 주세요.">
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt><label for="">검색어</label></dt>
+                            <dd>
+                                <div class="form_box">
+                                    <input type="text" id="inp_01" placeholder="입력해 주세요.">
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt><label for="">검색어</label></dt>
+                            <dd>
+                                <div class="form_box">
+                                    <input type="text" id="inp_01" placeholder="입력해 주세요.">
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="search_detail_box on">
+                        <a href="" class="detail_btn">상세검색<span></span></a>
+                        <div class="cont">
+                            <div class="search_item type4">
+                                <dl>
+                                    <dt><label for="">검색어</label></dt>
+                                    <dd>
+                                        <div class="form_box">
+                                            <input type="text" id="inp_01" placeholder="입력해 주세요.">
+                                        </div>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt><label for="">검색어</label></dt>
+                                    <dd>
+                                        <div class="form_box">
+                                            <input type="text" id="inp_01" placeholder="입력해 주세요.">
+                                        </div>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt><label for="">검색어</label></dt>
+                                    <dd>
+                                        <div class="form_box">
+                                            <input type="text" id="inp_01" placeholder="입력해 주세요.">
+                                        </div>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt><label for="">검색어</label></dt>
+                                    <dd>
+                                        <div class="form_box">
+                                            <input type="text" id="inp_01" placeholder="입력해 주세요.">
+                                        </div>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </dd>
         </dl>

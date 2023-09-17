@@ -21,6 +21,50 @@ window.onload = function(){
         buttonImageOnly: true,
         buttonText: "날짜선택"
     });
+    $(".datepicker_start input").datepicker({
+        dateFormat: 'yy-mm-dd',
+        prevText: '이전 달',
+        nextText: '다음 달',
+        monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+        monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+        dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+        dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+        dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+        showMonthAfterYear: true,
+        yearSuffix: '년',
+        showOn: "both",
+        changeMonth: true,
+        changeYear: true,
+        yearRange: 'c-100:c+15',
+        buttonImage: "../images/ico/ico_calendar.svg",
+        buttonImageOnly: true,
+        buttonText: "날짜선택"
+    });
+    $(".datepicker_end input").datepicker({
+        dateFormat: 'yy-mm-dd',
+        prevText: '이전 달',
+        nextText: '다음 달',
+        monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+        monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+        dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+        dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+        dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+        showMonthAfterYear: true,
+        yearSuffix: '년',
+        showOn: "both",
+        changeMonth: true,
+        changeYear: true,
+        yearRange: 'c-100:c+15',
+        buttonImage: "../images/ico/ico_calendar.svg",
+        buttonImageOnly: true,
+        buttonText: "날짜선택"
+    });
+    $('.datepicker_start input').datepicker("option", "onClose", function ( selectedDate ) {
+        $(".datepicker_end input").datepicker( "option", "minDate", selectedDate );
+    });
+    $('.datepicker_end input').datepicker("option", "onClose", function ( selectedDate ) {
+        $(".datepicker_start input").datepicker( "option", "maxDate", selectedDate );
+    });
 
     // 탭
     $('.tab_group > .tab_btn > ul > li > a').on('click', function(e){
@@ -100,11 +144,12 @@ window.onload = function(){
 
     // 주요서비스
     const service_btn = document.querySelector('.main_service dt a');
-
-    service_btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        this.parentElement.parentElement.classList.toggle('on');
-    });
+    if(service_btn){
+        service_btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            this.parentElement.parentElement.classList.toggle('on');
+        });
+    }
 
     // 팝업
     const body = document.querySelector('body');
@@ -148,5 +193,24 @@ window.onload = function(){
         });
     }
 
+    // 검색폼 상세검색 toggle
+    const search_btn = document.querySelector('.detail_btn');
+    if(search_btn){
+        search_btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            this.parentElement.classList.toggle('on');
+        });
+    }
+
+    // 민원 길라잡이 toggle
+    const qna_btn = document.querySelectorAll('.qna_list_box .list dt a');
+    if(qna_btn){
+        for(let i = 0; i < qna_btn.length; i++){
+            qna_btn[i].addEventListener('click', function(e) {
+                e.preventDefault();
+                this.parentElement.parentElement.classList.toggle('on');
+            });
+        }
+    }
 
 }

@@ -185,6 +185,14 @@ div[class^="txt_"] {
 .btn_box .btn_black:hover {
     background-color: #000;
 }
+.btn_box .btn_lightblue {
+    background-color: #EEF3F9;
+    color: #575757;
+}
+.btn_box .btn_lightblue:hover {
+    background-color: var(--blue-color);
+    color: #fff;
+}
 
 /* 게시판버튼 */
 .btn_box_group.justify_between {
@@ -285,6 +293,45 @@ div[class^="txt_"] {
 }
 .rdo_box.solo input + label {
     padding-left: 19px;
+}
+
+.rdo_box.btn {
+    gap: 0;
+}
+.rdo_box.btn input + label::before,
+.rdo_box.btn input + label::after {
+    display: none;
+}
+.rdo_box.btn span + span {
+    margin-left: -1px;
+}
+.rdo_box.btn span input + label {
+    border: 1px solid var(--blue-color);
+}
+.rdo_box.btn span:first-child input + label {
+    border-radius: 4px 0 0 4px;
+    transition: .2s;
+}
+.rdo_box.btn span:last-child input + label {
+    border-radius: 0 4px 4px 0;
+}
+.rdo_box.btn span input:checked + label {
+    color: #fff;
+}
+.rdo_box.btn span input:checked + label {
+    background-color: var(--blue-color);
+}
+.rdo_box.btn input + label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    box-sizing: border-box;
+    min-width: 80px;
+    padding: 0 25px;
+    height: 36px;
+    font-size: var(--default-size);
+    color: var(--blue-color);
 }
 
 /* chk_box 체크박스 */
@@ -390,6 +437,8 @@ div[class^="txt_"] {
     transform: rotate(-45deg);
 }
 .form_box select {
+    padding-right: 35px;
+    box-sizing: border-box;
     appearance: none; /* 브라우저 기본 스타일 제거 */
     -webkit-appearance: none; /* Safari에서도 적용 */
     -moz-appearance: none; /* Firefox에서도 적용 */
@@ -481,9 +530,7 @@ div[class^="txt_"] {
 .ui-state-default,
 .ui-widget-content .ui-state-default,
 .ui-widget-header .ui-state-default,
-.ui-button,
-html .ui-button.ui-state-disabled:hover,
-html .ui-button.ui-state-disabled:active {
+.ui-button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -553,13 +600,19 @@ a.ui-button:active,
     resize: none;
     min-height: 120px;
 }
-.form_box.datepicker_day {
+.form_box.datepicker_day,
+.form_box.datepicker_start,
+.form_box.datepicker_end {
     position: relative;
 }
-.form_box.datepicker_day input {
+.form_box.datepicker_day input,
+.form_box.datepicker_start input,
+.form_box.datepicker_end input {
     padding-right: 45px;
 }
-.form_box.datepicker_day input + img {
+.form_box.datepicker_day input + img,
+.form_box.datepicker_start input + img,
+.form_box.datepicker_end input + img  {
     position: absolute;
     top: 50%;
     right: 10px;
@@ -571,6 +624,11 @@ a.ui-button:active,
 }
 
 /* 폼+ */
+.form_group .btn_box > * {
+    border-radius: 4px;
+    padding: 8px 14px;
+    font-size: var(--default-size);
+}
 .form_group.rrn {
     align-items: center;
 }
@@ -584,9 +642,6 @@ a.ui-button:active,
     display: flex;
     justify-content: center;
     width: 80px;
-    padding: 8px 10px;
-    border-radius: 4px;
-    font-size: var(--default-size);
 }
 .txt_chk_box {
     display: flex;
@@ -621,6 +676,48 @@ a.ui-button:active,
 .form_group.file_box .form_box {
     width: calc(100% - 110px);
 }
+.form_group.address .form_box {
+    width: calc((100% - 100px) / 2);
+}
+.form_group.chk_txt {
+    justify-content: flex-start;
+    align-items: center;
+}
+.form_group.chk_txt .big_sub_list {
+    gap: 0;
+    margin-top: 0;
+}
+div + .form_group.tit_cont {
+    margin-top: 10px;
+}
+.form_group.tit_cont .form_box + .form_box {
+    margin-top: 10px;
+}
+.form_group.tit_cont .form_box {
+    display: flex;
+    justify-content: space-between;
+}
+.form_group.tit_cont .form_box label {
+    border: none;
+    padding: 0;
+    width: auto;
+    font-weight: 600;
+}
+.form_group.tit_cont .form_box input {
+    width: calc(100% - 80px);
+}
+.form_group.sel_inp .sel_box {
+    width: 80px;
+}
+.form_group.sel_inp .form_box:last-child {
+    width: calc(100% - 90px);
+}
+.form_group.date_sel {
+    align-items: center;
+    width: 100%;
+    gap: 5px;
+}
+
 
 /* 테이블 */
 .tbl_box {
@@ -636,16 +733,17 @@ a.ui-button:active,
 .tbl_box table tr th,
 .tbl_box table tr td {
     padding: 12px;
-    vertical-align: middle;
     border-bottom: 1px solid #ddd;
     box-sizing: border-box;
     font-size: var(--default-size);
-    line-height: 39px;
 }
 .tbl_box table tr th label {
     position: relative;
     font-size: var(--default-size);
     font-weight: 600;
+}
+.tbl_box table tr td {
+    line-height: 39px;
 }
 .req {
     display: block;
@@ -682,6 +780,12 @@ a.ui-button:active,
 .attachment_box a {
     text-decoration: underline;
     color: var(--blue-color);
+}
+.tbl_box table tr.answer td div {
+    padding: 24px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    background-color: var(--gray-color);
 }
 
 /* 정보테이블 */
@@ -805,6 +909,15 @@ a.ui-button:active,
     margin: 0 auto;
     box-sizing: border-box;
     background: var(--light-brown-color) url(../images/ico/ico_paperclip.svg) no-repeat center;
+    text-indent: -9999px;
+}
+.tbl_board table tr td .users {
+    display: flex;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    background: var(--navy-color) url(../images/ico/ico_users.svg) no-repeat center;
     text-indent: -9999px;
 }
 
@@ -943,7 +1056,7 @@ a.ui-button:active,
 }
 .state_box > * {
     display: block;
-    padding: 2px 4px;
+    padding: 2px 6px;
     border-radius: 4px;
     font-size: 13px;
     font-weight: 300;
@@ -965,6 +1078,9 @@ a.ui-button:active,
 }
 .state_box > .state_lightgray {
     background-color: #999;
+}
+.state_box > .state_red {
+    background-color: #EC354B;
 }
 
 /* 다운로드 btn */
@@ -1045,6 +1161,94 @@ a.ui-button:active,
 .processing_status_box li:last-child {
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
+}
+
+/* 검색폼 */
+.search_item_group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: var(--gray-color);
+    padding: 20px 40px;
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+.search_item_group .search_item {
+    display: flex;
+    width: 100%;
+}
+.search_item_group .search_item dl {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.search_item_group .search_item.type3 dl {
+    width: 33.33%;
+} 
+.search_item_group .search_item.type4 {
+    justify-content: space-between;
+}
+.search_item_group .search_item.type4 dl {
+    width: calc(25% - 5px);
+} 
+.search_item_group .search_item.type4 dl.colspan2 {
+    width: calc(50% - 10px);
+}
+.search_item_group .search_item dl dt {
+    width: 80px;
+    text-align: right;
+}
+.search_item_group .search_item dl dt label {
+    font-size: var(--default-size);
+    font-weight: 600;
+    color: #333;
+}
+.search_item_group .search_item dl dd {
+    width: calc(100% - 96px);
+}
+.search_item_group .search_item dl dd > div {
+    width: 100%;
+}
+
+.search_detail_box {
+}
+.search_detail_box .detail_btn {
+    display: flex;
+    position: relative;
+    border-bottom: 1px dashed #575757;
+    padding: 10px 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    font-size: var(--big-size);
+    font-weight: 500;
+}
+.search_detail_box .detail_btn span {
+    display: block;
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    margin-top: -6px;
+    border: 1px solid #333;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    transition: .2s;
+}
+.search_detail_box.on .detail_btn span {
+    transform: rotate(225deg);
+    margin-top: -3px;
+}
+.search_detail_box .cont {
+    display: none;
+}
+.search_detail_box.on .cont {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.search_detail_box.on .cont .search_item {
+    width: 100%;
 }
 
 /* 동의박스 */
@@ -1249,6 +1453,65 @@ li .step_list {
     gap: 8px;
 }
 
+/* step_box */
+.step_box {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+    gap: 124px;
+}
+.step_box dl {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    box-sizing: border-box;
+}
+.step_box dl dt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    background-color: #d9d9d9;
+    border-radius: 50%;
+    margin-bottom: 12px;
+    width: 42px;
+    height: 42px;
+    font-size: 1.375rem;
+    font-weight: 600;
+    color: #bbb;
+}
+.step_box dl.on dt {
+    background-color: var(--light-brown-color);
+    color: #fff;
+} 
+.step_box dl dt::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 75px;
+    width: 100px;
+    height: 1px;
+    transform: translateY(-50%);
+    border-bottom: 1px dashed #bbb;
+}
+.step_box dl dt::after {
+    border-color: var(--light-brown-color);
+}
+.step_box dl:last-child dt::after {
+    display: none;
+}
+.step_box dl dd span {
+    font-weight: 600;
+    font-size: var(--default-size);
+    color: #bbb;
+}
+.step_box dl.on dd span {
+    color: #575757;
+}
+
 /* 탭 */
 .dep_main > .tab_btn > ul {
     display: flex;
@@ -1354,7 +1617,88 @@ li .step_list {
 .paging_box ul li.next:hover a {background-image: url(../images/ico/ico_next_on.svg);}
 .paging_box ul li.next_all:hover a {background-image: url(../images/ico/ico_next_all_on.svg);}
 
-
+/* qna 민원 길라잡이 */
+.qna_list_box .list {
+    border-top: 1px solid #575757;
+    border-bottom: 1px solid #575757;
+    padding: 0 12px;
+}
+.qna_list_box .list dl {
+    border-bottom: 1px solid #ddd;
+    box-sizing: border-box;
+}
+.qna_list_box .list dl:last-child {
+    border-bottom: none;
+}
+.qna_list_box .list dt a {
+    display: flex;
+    position: relative;
+    padding: 12px;
+}
+.qna_list_box .list dt a .tit {
+    display: flex;
+    position: relative;
+    width: 100%;
+    gap: 12px;
+    padding: 0 20px 0 30px;
+    box-sizing: border-box;
+    font-size: var(--default-size);
+    font-weight: 600;
+    color: #333;
+}
+.qna_list_box .list dt a .tit::before {
+    content: "";
+    display: flex;
+    position: absolute;
+    top: -1px;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: url(../images/ico/ico_help-circle.svg) no-repeat center;
+}
+.qna_list_box .list dt a .arrow {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    width: 8px;
+    height: 8px;
+    margin-top: -4px;
+    border: 2px solid #333;
+    border-width: 0 2px 2px 0;
+    transform: rotate(225deg);
+    transition: .2s;
+}
+.qna_list_box .list dl.on dt a .arrow {
+    transform: rotate(45deg);
+    margin-top: -8px;
+}
+.qna_list_box .list dl dd {
+    display: none;
+    padding: 0 30px;
+}
+.qna_list_box .list dl.on dd {
+    display: block;
+}
+.qna_list_box .list dl dd .answer {
+    padding: 12px 16px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    background-color: var(--gray-color);
+    margin-bottom: 12px;
+    font-size: var(--default-size);
+}
+.qna_list_box .list dl dd .answer .state_box {
+    justify-content: flex-start;
+    margin: 12px 0 0 0;
+}
+.qna_list_box .list dl dd .answer .state_box > * {
+    letter-spacing: .8px;
+    font-weight: 500;
+}
 
 /* ============================================================
     미디어쿼리 max-width: 960px
@@ -1406,7 +1750,35 @@ li .step_list {
     .form_group.inp_btn .btn_box > * {
         width: 60px;
     }
-    .txt_chk_box {
+    .form_group.address {
+        flex-wrap: wrap;
+    }
+    .form_group.address .form_box:nth-child(2) {
+        width: calc(100% - 90px);
+    }
+    .form_group.address .form_box:nth-child(3) {
+        width: 100%;
+    }
+    .form_group.chk_txt {
+        flex-direction: column;
+    }
+    .form_group.date_sel {
+        flex-wrap: wrap;
+    }
+    .form_group.date_sel .datepicker_start,
+    .form_group.date_sel .datepicker_end {
+        width: calc(50% - 10px);
+    }
+    .form_group.date_sel .form_box.datepicker_start input,
+    .form_group.date_sel .form_box.datepicker_end input {
+        padding-right: 30px;
+    }
+    .form_group.date_sel .form_box.datepicker_start input + img,
+    .form_group.date_sel .form_box.datepicker_end input + img {
+        right: 5px;
+    }
+    .form_group.date_sel .sel_box {
+        width: 100%;
     }
     
     /* 테이블 */
@@ -1434,6 +1806,7 @@ li .step_list {
     .tbl_box table tr td {
         width: 80%;
         padding: 12px 0 12px 5px;
+        line-height: 1.7;
     }
 
     .req {
@@ -1540,6 +1913,43 @@ li .step_list {
     /* 페이징 */
     .paging_box ul {
         gap: 4px;
+    }
+
+    /* 검색폼 */
+    .search_item_group {
+        padding: 16px;
+        gap: 5px;
+    }
+    .search_item_group .search_item {
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+    .search_item_group .search_item.type3 dl,
+    .search_item_group .search_item.type4 dl {
+        width: 100%;
+    }
+    .search_item_group .search_item.type4 dl.colspan2 {
+        width: 100%;
+    }
+    .search_detail_box {
+        padding: 0;
+    }
+
+    /* qna 민원 길라잡이 */
+    .qna_list_box .list {
+        padding: 0;
+    }
+    .qna_list_box .list dt a {
+        padding: 12px 0;
+    }
+    .qna_list_box .list dt a .tit {
+        padding: 0px 30px 0px 30px;
+    }
+    .qna_list_box .list dl dd {
+        padding: 0 15px;
+    }
+    .qna_list_box .board_search .search_group .search_box .form_box.search {
+        width: 100%;
     }
 
     /* 동의박스 */

@@ -1553,6 +1553,46 @@ footer .footer_logo a {
     margin: 20px 0;
 }
 
+/* 본인인증 */
+.certification_self {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px 12px;
+    width: 624px;
+    margin: 0 auto;
+}
+.certification_self li {
+    width: calc(33.33% - 8px);
+}
+.certification_self li .btn_box {
+    width: 100%;
+}
+.certification_self li .btn_box > * {
+    width: 100%;
+    font-size: var(--default-size);
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* 신청 완료 */
+.complete_box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 80px 0;
+}
+.complete_box span::before {
+    content: "";
+    display: block;
+    width: 84px;
+    height: 84px;
+    background: url(../images/ico/ico_complete.svg) no-repeat center;
+    margin: 0 auto 20px;
+}
+.complete_box span {
+    text-align: center;
+}
+
 /* ============================================================
     미디어쿼리 min-width: 1920px
 ============================================================ */
@@ -2224,6 +2264,15 @@ footer .footer_logo a {
     .chart_box {
         padding: 10px;
         box-sizing: border-box;
+    }
+
+    /* 본인인증 */
+    .certification_self {
+        width: 100%;
+        gap: 12px;
+    }
+    .certification_self li {
+        width: calc(50% - 6px);
     }
 
     /* qr코드 */
