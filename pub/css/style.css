@@ -1593,6 +1593,95 @@ footer .footer_logo a {
     text-align: center;
 }
 
+/* 인사말 */
+.salutation_box .tit {
+    display: block;
+    margin-bottom: 56px;
+    text-align: center;
+    font-family: 'NotoSerifKR';
+    font-weight: 500;
+    font-size: 1.75rem;
+}
+.salutation_box .tit span {
+    font-family: 'NotoSerifKR';
+    font-weight: 500;
+    font-size: 1.75rem;
+    color: var(--light-brown-color);
+}
+.salutation_box .cont dt {
+    margin-bottom: 32px;
+    font-family: 'NotoSerifKR';
+    font-weight: 500;
+    font-size: 1.125rem;
+    color: var(--light-brown-color);
+}
+.salutation_box .cont dd {
+    font-size: var(--default-size);
+}
+.salutation_box .cont dd .sign_box {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 32px;
+    font-family: 'NotoSerifKR';
+    font-weight: 500;
+    font-size: 1.125rem;
+    color: var(--light-brown-color);
+}
+.salutation_box .cont dd .sign_box span {
+    margin-left: 12px;
+}
+
+/* 연혁 */
+.history_box dl {
+    display: flex;
+    gap: 30px;
+    padding-bottom: 36px;
+    margin-bottom: 36px;
+    border-bottom: 1px solid #ddd;
+}
+.history_box dl:last-child {
+    border-bottom: 0;
+}
+.history_box dl dt {
+    font-size: 1.375rem;
+    font-weight: 600;
+}
+.history_box dl dd {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding-top: 5px;
+}
+.history_box dl dd .cont {
+    display: flex;
+    gap: 25px;
+}
+.history_box dl dd .cont .date {
+    position: relative;
+    padding-left: 30px;
+    width: 80px;
+    font-size: var(--default-size);
+    font-weight: 600;
+    color: #575757;
+}
+.history_box dl dd .cont .date::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 22px;
+    height: 22px;
+    background: url(../images/ico/ico_list_tit.svg) no-repeat center;
+}
+.history_box dl dd .cont .txt {
+    display: block;
+    width: calc(100% - 110px - 25px);
+    font-size: var(--default-size);
+    color: #575757;
+}
+
 /* ============================================================
     미디어쿼리 min-width: 1920px
 ============================================================ */
@@ -2273,6 +2362,20 @@ footer .footer_logo a {
     }
     .certification_self li {
         width: calc(50% - 6px);
+    }
+    
+    /* 연혁 */
+    .history_box dl {
+        gap: 18px;
+    }
+    .history_box dl dd {
+        gap: 14px;
+    }
+    .history_box dl dd .cont {
+        gap: 12px;
+    }
+    .history_box dl dd .cont .txt {
+        width: calc(100% - 110px - 12px);
     }
 
     /* qr코드 */

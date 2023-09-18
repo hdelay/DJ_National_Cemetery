@@ -1453,6 +1453,28 @@ li .step_list {
     gap: 8px;
 }
 
+.step_list.blue {
+    background-color: transparent;
+}
+.step_list.blue dl {
+    width: 150px;
+}
+.step_list.blue dl dt {
+    background-color: var(--navy-color);
+    font-weight: 500;
+}
+.step_list.blue dl dd span {
+    display: block;
+    line-height: 20px;
+    font-size: var(--default-size);
+}
+.step_list.blue dl dt::after {
+    width: 84px;
+    height: 6px;
+    background: url(../images/ico/ico_line.svg) no-repeat center;
+    border: none;
+}
+
 /* step_box */
 .step_box {
     display: flex;
@@ -1848,30 +1870,14 @@ li .step_list {
     }
 
     /* stap list */
-    .step_list {
-        flex-direction: column;
-        gap: 12px;
-        padding: 10px 12px;
+    .step_list.blue {
+        padding: 0;
     }
-    .step_list dl {
-        display: flex;
-        width: 100%;
-        padding-right: 0;
+    .step_list.blue dl {
+        width: calc(100% / 3);
     }
-    .step_list dl dt {
-        width: 32px;
-        height: 32px;
-        font-size: var(--default-size);
-    }
-    .step_list dl dt::after {
-        display: none;
-    }
-    .step_list dl dd {
-        width: calc(100% - 32px - 12px);
-        margin-left: 12px;
-    }
-    .step_list dl:nth-child(4) {
-        width: 100%;
+    .step_list.blue dl dt::after {
+        background-position: -31px 0px;
     }
 
     /* 정보테이블 */
