@@ -874,6 +874,8 @@ div + .form_group.tit_cont {
     padding: 13px 4px;
 }
 .tbl_board table tr td .txt {
+    display: flex;
+    align-items: center;
     width: calc(100% - 28px);
 }
 .tbl_board table tr td div + div + span.txt {
@@ -1265,6 +1267,15 @@ div + .form_group.tit_cont {
 .agree_box p {
     font-size: var(--default-size);
     font-weight: 600;
+}
+
+/* 텍스트박스 */
+.text_box {
+    padding: 12px 30px;
+    box-sizing: border-box;
+    background-color: var(--gray-color);
+    font-size: var(--default-size);
+    border-radius: 20px;
 }
 
 /* 리스트 */
@@ -1763,6 +1774,13 @@ li .step_list {
     }
     .btn_box_group.m_column .btn_box > * {
         padding: 8px;
+    }
+    .btn_box_group.mo_column {
+        flex-direction: column;
+    }
+    .btn_box_group.mo_column .btn_box > * {
+        width: 100%;
+        text-align: center;
     }
 
     /* 폼+ */
