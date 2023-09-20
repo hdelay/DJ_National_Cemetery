@@ -48,6 +48,7 @@ div + div[class^="txt_"] {
 span[class^="txt_"],
 div[class^="txt_"] {
     line-height: 1.3;
+    font-size: var(--default-size);
 }
 .txt_b {
     font-weight: 500;
@@ -1304,6 +1305,10 @@ div + .form_group.tit_cont {
     font-size: var(--default-size);
     color: #575757;
 }
+.big_sub_list .ollist {
+    gap: 0;
+    padding-left: 15px;
+}
 
 .big_ullist {
     display: flex;
@@ -1342,6 +1347,9 @@ div + .form_group.tit_cont {
     gap: 10px;
     margin-top: 10px;
 }
+.answer > .big_sub_list {
+    margin-top: 0;
+}
 .big_sub_list > li {
     line-height: 26px;
     font-size: var(--default-size);
@@ -1352,12 +1360,18 @@ div + .form_group.tit_cont {
     gap: 5px;
     margin-top: 2px;
 }
+td .big_sub_list {
+    margin-top: 0;
+}
 
 .middle_ullist {
     display: flex;
     flex-direction: column;
     gap: 17px;
     margin-top: 12px;
+}
+.answer .middle_ullist {
+    margin-top: 0;
 }
 .middle_ullist + .middle_ullist {
     margin-top: 30px;
@@ -1366,6 +1380,11 @@ div + .form_group.tit_cont {
     position: relative;
     padding-left: 22px;
     box-sizing: border-box;
+    font-size: var(--default-size);
+    font-weight: 600;
+    color: var(--navy-color);
+}
+.middle_ullist > li > a {
     font-size: var(--default-size);
     font-weight: 600;
     color: var(--navy-color);
@@ -1651,35 +1670,38 @@ li .step_list {
 .paging_box ul li.next_all:hover a {background-image: url(../images/ico/ico_next_all_on.svg);}
 
 /* qna 민원 길라잡이 */
-.qna_list_box .list {
+.toggle_list_box .list {
     border-top: 1px solid #575757;
     border-bottom: 1px solid #575757;
     padding: 0 12px;
 }
-.qna_list_box .list dl {
+.toggle_list_box .list dl {
     border-bottom: 1px solid #ddd;
     box-sizing: border-box;
 }
-.qna_list_box .list dl:last-child {
+.toggle_list_box .list dl:last-child {
     border-bottom: none;
 }
-.qna_list_box .list dt a {
+.toggle_list_box .list dt a {
     display: flex;
     position: relative;
     padding: 12px;
 }
-.qna_list_box .list dt a .tit {
+.toggle_list_box .list dt a .tit {
     display: flex;
     position: relative;
     width: 100%;
     gap: 12px;
-    padding: 0 20px 0 30px;
+    padding: 0 20px 0 0;
     box-sizing: border-box;
     font-size: var(--default-size);
     font-weight: 600;
     color: #333;
 }
-.qna_list_box .list dt a .tit::before {
+.toggle_list_box.qna .list dt a .tit {
+    padding: 0 20px 0 30px;
+}
+.toggle_list_box.qna .list dt a .tit::before {
     content: "";
     display: flex;
     position: absolute;
@@ -1692,7 +1714,7 @@ li .step_list {
     border-radius: 50%;
     background: url(../images/ico/ico_help-circle.svg) no-repeat center;
 }
-.qna_list_box .list dt a .arrow {
+.toggle_list_box .list dt a .arrow {
     display: block;
     position: absolute;
     top: 50%;
@@ -1705,18 +1727,18 @@ li .step_list {
     transform: rotate(225deg);
     transition: .2s;
 }
-.qna_list_box .list dl.on dt a .arrow {
+.toggle_list_box .list dl.on dt a .arrow {
     transform: rotate(45deg);
     margin-top: -8px;
 }
-.qna_list_box .list dl dd {
+.toggle_list_box .list dl dd {
     display: none;
     padding: 0 30px;
 }
-.qna_list_box .list dl.on dd {
+.toggle_list_box .list dl.on dd {
     display: block;
 }
-.qna_list_box .list dl dd .answer {
+.toggle_list_box .list dl dd .answer {
     padding: 12px 16px;
     box-sizing: border-box;
     border-radius: 12px;
@@ -1724,13 +1746,16 @@ li .step_list {
     margin-bottom: 12px;
     font-size: var(--default-size);
 }
-.qna_list_box .list dl dd .answer .state_box {
+.toggle_list_box .list dl dd .answer .state_box {
     justify-content: flex-start;
     margin: 12px 0 0 0;
 }
-.qna_list_box .list dl dd .answer .state_box > * {
+.toggle_list_box .list dl dd .answer .state_box > * {
     letter-spacing: .8px;
     font-weight: 500;
+}
+.toggle_list_box .list dl dd .answer a:hover {
+    text-decoration: underline;
 }
 
 /* ============================================================
@@ -1960,19 +1985,19 @@ li .step_list {
     }
 
     /* qna 민원 길라잡이 */
-    .qna_list_box .list {
+    .toggle_list_box .list {
         padding: 0;
     }
-    .qna_list_box .list dt a {
+    .toggle_list_box .list dt a {
         padding: 12px 0;
     }
-    .qna_list_box .list dt a .tit {
+    .toggle_list_box .list dt a .tit {
         padding: 0px 30px 0px 30px;
     }
-    .qna_list_box .list dl dd {
+    .toggle_list_box .list dl dd {
         padding: 0 15px;
     }
-    .qna_list_box .board_search .search_group .search_box .form_box.search {
+    .toggle_list_box .board_search .search_group .search_box .form_box.search {
         width: 100%;
     }
 

@@ -203,10 +203,10 @@ window.onload = function(){
     }
 
     // 민원 길라잡이 toggle
-    const qna_btn = document.querySelectorAll('.qna_list_box .list dt a');
-    if(qna_btn){
-        for(let i = 0; i < qna_btn.length; i++){
-            qna_btn[i].addEventListener('click', function(e) {
+    const toggle_btn = document.querySelectorAll('.toggle_list_box .list dt a');
+    if(toggle_btn){
+        for(let i = 0; i < toggle_btn.length; i++){
+            toggle_btn[i].addEventListener('click', function(e) {
                 e.preventDefault();
                 this.parentElement.parentElement.classList.toggle('on');
             });
