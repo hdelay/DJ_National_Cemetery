@@ -213,6 +213,10 @@ div[class^="txt_"] {
     justify-content: flex-start;
     flex-wrap: wrap;
 }
+.btn_box_group.right {
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
 
 /* rdo_box 라디오박스 */
 .rdo_box {

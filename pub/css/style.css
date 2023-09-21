@@ -2364,10 +2364,12 @@ footer .footer_logo a {
     }
     .saddle_decoration_swiper .img {
         width: 100%;
+        height: auto;
     }
     .saddle_decoration_swiper .swiper-pagination {
         flex-direction: row;
         gap: inherit;
+        height: auto;
         padding-left: 0;
         width: 100%;
         margin-bottom: 12px;
