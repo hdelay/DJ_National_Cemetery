@@ -1478,11 +1478,18 @@ footer .footer_logo a {
     gap: 16px;
 }
 .experiential_education_box dl dt .img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
     height: 78px;
 }
 .experiential_education_box dl dt .img img {
     display: block;
     height: 100%;
+}
+.experiential_education_box dl:nth-child(3) dt .img img {
+    height: auto;
 }
 .experiential_education_box dl dt strong {
     font-size: var(--default-size);
